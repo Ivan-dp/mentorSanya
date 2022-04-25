@@ -4,8 +4,5 @@ import App from './App';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-    <div>
-      It works!
-      <button>BTN</button>
-    </div>
+    <App/>
 );
