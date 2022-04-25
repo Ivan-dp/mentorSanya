@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 function App() {
 
   const [likes, setLikes] = useState(0);
-  const [value, setValue] = useState("Текст в инпуте");
+  const [value, setValue] = useState("Текст в инпуте test");
 
   // console.log(count);
   // console.log(setCount);
