@@ -6,10 +6,11 @@ import './styles/App.css';
 
 function App() {
   const [value, setValue] = useState("Текст в инпуте");
-  
+
   return (
     <div className="App">
       {/* <ClassCounter/> */}
+      {/* TODO тут можно писать штуки, чтоб не забывать что-нибудь*/}
       <RedSquare/>
     </div>
   );
