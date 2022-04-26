@@ -3,6 +3,7 @@ import ClassCounter from './components/ClassCounter';
 import Counter from "./components/Counter";
 import RedSquare from './components/RedSquare';
 import Arr1 from'./components/Arr1';
+import ArrOfObj from'./functions/ArrOfObj';
 import './styles/App.css';
 
 function App() {
