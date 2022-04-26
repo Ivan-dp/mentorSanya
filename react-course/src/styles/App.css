@@ -13,14 +13,23 @@
     width: 800px;
 }
 
+.App > ul {
+    display: flex;
+    flex-wrap: wrap;
+    font-family: sans-serif;
+    font-weight: normal;
+    color: azure;
+}
+
 .RedSquare {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 300px;
-    height: 300px;
+    width: 80px;
+    height: 80px;
     background-color: red;
-    border-radius: 25px;
+    border-radius: 5px;
+    margin: 10px;
 }
 
 .RedSquare > h1 {
