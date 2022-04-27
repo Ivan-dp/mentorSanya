@@ -7,8 +7,5 @@ export const copyArr1 = [...array1];
 const Arr1 = array1.map((array1) => {
     return <li className="RedSquare">{array1}</li>;
 })
-// console.log(Arr1);
-// console.log(array1);
-// console.log(copyArr1);
 
 export default Arr1;
