@@ -1,14 +1,17 @@
 import React from 'react';
-import { ColorValueList } from './components/ColorValueList';
+import { copyArrayColorValue } from './const/consts';
+import { stringsDelete, b } from './functions/stringsDelete';
 import './styles/App.css';
 
 function App() {
 
   return (
     <div className="App">
-      <ul>{ColorValueList}</ul>
+      
     </div>
   );
 }
+
+console.log(b);
 
 export default App;
