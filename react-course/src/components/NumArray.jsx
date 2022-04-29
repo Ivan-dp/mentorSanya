@@ -1,9 +1,10 @@
 import React from "react";
 import { copyArrayColorValue } from "../const/consts";
-import {stringsDelete} from "../functions/stringsDelete";
 import { numArrayColors } from "../const/consts";
+import {stringsDelete} from "../functions/stringsDelete";
+import { sortAscend } from "../functions/sortAscend";
 
-export const arrayNum = stringsDelete(copyArrayColorValue);
+export const arrayNum = stringsDelete(copyArrayColorValue).sort(sortAscend);
 
 export const NumArray = arrayNum.map(item => {
     if ((item >= 0) && (item <= 5)) {
