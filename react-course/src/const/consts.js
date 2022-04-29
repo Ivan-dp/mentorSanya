@@ -5,3 +5,9 @@ export const arrayColor = ['red', 'orange', 'blue', 'yellow', 'green', 'black', 
 export const copyArrayValue = [...arrayValue];
 export const arrayColorValue = mergeArrays(copyArrayValue, arrayColor);
 export const copyArrayColorValue = [...arrayColorValue];
+
+export const numArrayColors = {
+    '<0': 'red',
+    '0-5': 'yellow',
+    '>5': 'green'
+};
