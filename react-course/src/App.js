@@ -1,12 +1,12 @@
 import React from 'react';
-import { ColorValueList } from './components/ColorValueList';
+import {NumArray} from './components/NumArray'
 import './styles/App.css';
 
 function App() {
 
   return (
     <div className="App">
-      <ul>{ColorValueList}</ul>
+      <ul>{NumArray}</ul>
     </div>
   );
 }
