@@ -6,7 +6,7 @@ export const renderOtherNumArrays = function(arr) {
             return <li key={item} className="square" style={{backgroundColor: numArrayColors["0-5"]}}>
                 {item}
             </li>;
-        } else if (item > 5) {
+        } if (item > 5) {
             return <li key={item} className="square" style={{backgroundColor: numArrayColors[">5"]}}>
                 {item}
             </li>;
