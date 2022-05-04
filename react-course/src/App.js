@@ -1,7 +1,7 @@
-import React from 'react';
-import { arrayNum } from './const/consts';
-import { renderOtherNumArrays } from './functions/renderOtherNumArrays';
-import './styles/App.css';
+import React from "react";
+import { arrayNum } from "./const/consts";
+import { renderOtherNumArrays } from "./functions/renderOtherNumArrays";
+import "./styles/App.css";
 
 function App() {
   return (
@@ -12,5 +12,4 @@ function App() {
 }
 
 console.log(renderOtherNumArrays(arrayNum));
-
 export default App;
