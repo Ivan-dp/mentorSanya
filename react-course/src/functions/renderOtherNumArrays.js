@@ -1,4 +1,5 @@
 import { numArrayColors } from '../const/consts';
+import React from 'react';
 
 export const renderOtherNumArrays = function (arr) {
   return arr.map((item) => {
