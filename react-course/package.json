@@ -17,6 +17,10 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "prettier": {
+    "singleQuote": true,
+    "printWidth": 100
+  },
   "eslintConfig": {
     "extends": [
       "react-app",
