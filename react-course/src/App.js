@@ -1,4 +1,5 @@
 import React from 'react';
+// eslint-disable-next-line import/no-unresolved
 import { FuncWithNum } from './components/FuncWithNum';
 // import { arrayNum } from './const/consts';
 // import { renderOtherNumArrays } from './functions/renderOtherNumArrays';
@@ -8,7 +9,12 @@ function App() {
   return (
     <div className="App">
       {/* <ul>{renderOtherNumArrays(arrayNum)}</ul> */}
-      <FuncWithNum name="Ivan" />
+      <FuncWithNum
+        number={5}
+        func={() => {
+          return this.number * 2;
+        }}
+      />
     </div>
   );
 }
