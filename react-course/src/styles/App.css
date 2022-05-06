@@ -1,36 +1,44 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 #root {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .App {
-    width: 800px;
-    display: flex;
-    justify-content: space-between;
+  width: 1200px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .App > ul {
-    width: 100%;
-    display: grid;
-    grid-template-columns: 20% 20% 20% 20% 20%;
-    font-family: sans-serif;
-    font-weight: bold;
-    color: lightgreen;
-    justify-content: center;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 20% 20% 20% 20% 20%;
+  font-family: sans-serif;
+  font-weight: bold;
+  color: lightgreen;
+  justify-content: center;
+}
+
+.result {
+  background-color: coral;
+  font-family: sans-serif;
+  font-weight: normal;
+  text-transform: uppercase;
 }
 
 .square {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    width: 100px;
-    height: 100px;
-    border-radius: 5px;
-    margin: 10px auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 200px;
+  height: 200px;
+  border-radius: 5px;
+  margin: 10px auto;
 }
