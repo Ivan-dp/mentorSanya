@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 // eslint-disable-next-line import/no-unresolved
 import { FuncWithNum } from './components/FuncWithNum';
+// eslint-disable-next-line import/no-unresolved
+import { FuncWithNum2 } from './components/FuncWithNum2';
 import './styles/App.css';
 
 function App() {
@@ -47,6 +49,14 @@ function App() {
       {results.map((result) => (
         <FuncWithNum result={result} key={result.id} number={result.number} func={result.func} />
       ))}
+      <FuncWithNum2
+        key={1}
+        arg1={3}
+        arg2={19}
+        func={function (x, y) {
+          return x + y;
+        }}
+      />
     </div>
   );
 }
