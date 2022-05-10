@@ -32,11 +32,8 @@
   background-color: yellow;
 }
 
-.result,
-.result2 {
-  font-family: sans-serif;
-  font-weight: normal;
-  text-transform: uppercase;
+.green {
+  background-color: green;
 }
 
 .square {
@@ -48,4 +45,12 @@
   height: 200px;
   border-radius: 5px;
   margin: 10px auto;
+  font-family: sans-serif;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: black;
+}
+
+button.square.green {
+  font-size: 24px;
 }
