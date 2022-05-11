@@ -7,11 +7,12 @@ export const TestUseEffect = () => {
 
   useEffect(() => {
     console.log('Я родился ' + count + ' раз!');
-    for (var i = 0; i <= count; i += 1) {
-      myArr.push(count + ' обезьянка');
-    }
+    // for (var i = 0; i <= count; i += 1) {
+    // }
+    myArr.push(count + ' обезьянка');
     console.log(myArr);
   });
+  // console.log(myArr);
   return (
     <div>
       <button className="square green" onClick={() => setCount(count + 1)}>
