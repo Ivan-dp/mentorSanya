@@ -7,10 +7,15 @@ export const TestUseEffect = () => {
   useEffect(() => {
     if (count > 0) {
       arr.push(count + ' обезъянка');
+      //TODO што-то тут не так
+    }
+  }, [count]);
+
+  useEffect(() => {
       console.log('Я родился ' + count + ' раз!');
       console.log(arr);
-    }
-  }, [count, arr, setArr]);
+      //TODO почему при изменении arr, не срабатывает этот хук?
+  }, [arr]);
 
   return (
     <div>
