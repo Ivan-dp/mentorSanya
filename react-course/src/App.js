@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 import { FuncWithNum } from './components/FuncWithNum';
 // eslint-disable-next-line import/no-unresolved
 import { FuncWithNum2 } from './components/FuncWithNum2';
+// eslint-disable-next-line import/no-unresolved
+import { TestUseEffect } from './components/TestUseEffect';
 import './styles/App.css';
 
 function App() {
@@ -57,6 +59,7 @@ function App() {
           return x + y;
         }}
       />
+      <TestUseEffect />
     </div>
   );
 }
