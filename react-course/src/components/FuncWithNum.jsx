@@ -14,7 +14,7 @@ export const FuncWithNum = (props) => {
 
   if (toggle) {
     return (
-      <button onClick={() => setToggle(!toggle)} className="square coral">
+      <button onClick={() => setToggle(false)} className="square coral">
         <p>ID: {props.result.id}</p>
         <h3>Number: {props.result.number}</h3>
         <h1>Result: {props.result.func(props.result.number)}</h1>
