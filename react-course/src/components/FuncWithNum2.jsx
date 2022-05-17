@@ -12,7 +12,7 @@ export const FuncWithNum2 = (props) => {
 
   if (toggle) {
     return (
-      <button onClick={() => setToggle(!toggle)} className="square yellow">
+      <button onClick={() => setToggle(false)} className="square yellow">
         <h3>arg1: {props.arg1}</h3>
         <h3>arg2: {props.arg2}</h3>
         <h1>Result: {props.func(props.arg1, props.arg2)}</h1>

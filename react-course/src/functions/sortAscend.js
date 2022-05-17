@@ -1,3 +1,8 @@
 export function sortAscend(a, b) {
-  return a > b ? 1 : b > a ? -1 : 0;
+  if (a > b) {
+    return 1;
+  } else if (b > a) {
+    return -1;
+  }
+  return 0;
 }
