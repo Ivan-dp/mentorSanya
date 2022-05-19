@@ -61,3 +61,10 @@ button.square.green {
   width: 1400px;
   height: auto;
 }
+
+.Parent button {
+  width: 80px;
+  height: 40px;
+  border: solid 1px grey;
+  border-radius: 5px;
+}
