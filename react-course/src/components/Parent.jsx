@@ -8,9 +8,9 @@ export const Parent = () => {
   return (
     <div className="Parent">
       {/* <Baby /> */}
-      <Baby parentColor={color} babyColor={setColor('yellow')} />
-      {/* <Baby parentColor={color} babyColor={setColor('red')} />
-      <Baby parentColor={color} babyColor={setColor('green')} /> */}
+      <Baby key="1" className={'baby1'} parentColor={color} babyColor={'yellow'} func={setColor} />
+      <Baby key="2" className={'baby2'} parentColor={color} babyColor={'red'} func={setColor} />
+      <Baby key="3" className={'baby3'} parentColor={color} babyColor={'green'} func={setColor} />
     </div>
   );
 };
