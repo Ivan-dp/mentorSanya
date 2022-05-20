@@ -1,7 +1,3 @@
-// import { mergeArrays } from '../functions/mergeArrays';
-// import { stringsDelete } from '../functions/stringsDelete';
-// import { sortAscend } from '../functions/sortAscend.jsx';
-
 export const arrayValue = ['apple', 10, 'orange', 4, 'strawberry', 3.15, 5.16, -1, -9, 300];
 export const arrayColor = [
   'red',
@@ -16,10 +12,6 @@ export const arrayColor = [
   'pink',
 ];
 export const copyArrayValue = [...arrayValue];
-// export const arrayColorValue = mergeArrays(copyArrayValue, arrayColor);
-// export const copyArrayColorValue = [...arrayColorValue];
-
-// export const arrayNum = stringsDelete(copyArrayColorValue).sort(sortAscend);
 
 export const numArrayColors = {
   '<0': 'red',
