@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/mentorSanya/static/css/main.c4879a6b.css",
+    "main.js": "/mentorSanya/static/js/main.6a50b65e.js",
+    "index.html": "/mentorSanya/index.html",
+    "main.c4879a6b.css.map": "/mentorSanya/static/css/main.c4879a6b.css.map",
+    "main.6a50b65e.js.map": "/mentorSanya/static/js/main.6a50b65e.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c4879a6b.css",
+    "static/js/main.6a50b65e.js"
+  ]
+}
