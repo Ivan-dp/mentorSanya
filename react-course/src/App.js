@@ -1,6 +1,6 @@
 import React from 'react';
 import { Parent } from './components/';
-import './styles/App.css';
+import './styles/index';
 
 function App() {
   return (
