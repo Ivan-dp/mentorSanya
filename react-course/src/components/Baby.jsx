@@ -1,7 +1,7 @@
 import { React } from 'react';
 import PropTypes from 'prop-types';
 
-export const Baby = (props) => {
+const Baby = (props) => {
   Baby.propTypes = {
     func: PropTypes.func.isRequired,
     parentColor: PropTypes.string.isRequired,
@@ -18,3 +18,5 @@ export const Baby = (props) => {
     </div>
   );
 };
+
+export { Baby };

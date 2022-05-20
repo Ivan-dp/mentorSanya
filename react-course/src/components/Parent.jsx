@@ -1,7 +1,7 @@
 import { React, useState } from 'react';
-import { Baby } from './Baby.jsx';
+import { Baby } from './index';
 
-export const Parent = () => {
+const Parent = () => {
   const [color, setColor] = useState('black');
   return (
     <div className="Parent">
@@ -11,3 +11,5 @@ export const Parent = () => {
     </div>
   );
 };
+
+export { Parent };
