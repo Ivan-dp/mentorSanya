@@ -1,15 +1,20 @@
 import React from 'react';
-import { Parent, ToggleSquare } from './components/';
+import { Par, Toggle } from './components/';
 import './styles/index';
 
 function App() {
   return (
     <div className="App">
-      <Parent />
-      <ToggleSquare className="square" style={{ backgroundColor: 'yellow' }}></ToggleSquare>
-      <ToggleSquare className="square" style={{ backgroundColor: 'yellow' }}>
-        <button style={{ backgroundColor: 'red' }}>Push Me!</button>
-      </ToggleSquare>
+      <Par>
+        <div className="square" style={{ backgroundColor: 'pink' }}></div>
+      </Par>
+      <Par>
+        <div className="square" style={{ backgroundColor: 'red' }}>
+          <Toggle>
+            <button>Push ME!</button>
+          </Toggle>
+        </div>
+      </Par>
     </div>
   );
 }

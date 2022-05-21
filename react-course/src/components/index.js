@@ -1,7 +1,9 @@
 import { Baby } from './Baby.jsx';
 import { Parent } from './Parent.jsx';
-import { ToggleSquare } from './ToggleSquare.jsx';
+import { Toggle } from './Toggle.jsx';
+import { Par } from './Par.jsx';
 
 export { Baby };
 export { Parent };
-export { ToggleSquare };
+export { Toggle };
+export { Par };
