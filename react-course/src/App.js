@@ -1,7 +1,6 @@
 import React from 'react';
-// eslint-disable-next-line import/no-unresolved
-import { Parent } from './components/Parent';
-import './styles/App.css';
+import { Parent } from './components/';
+import './styles/index';
 
 function App() {
   return (
