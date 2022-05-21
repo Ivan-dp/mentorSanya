@@ -58,13 +58,14 @@ button.square.green {
 .Parent {
   display: flex;
   justify-content: space-between;
-  width: 1400px;
+  width: 800px;
   height: auto;
 }
 
-.Parent button {
+.square button {
   width: 80px;
   height: 40px;
   border: solid 1px grey;
   border-radius: 5px;
+  color: black;
 }
