@@ -15,27 +15,6 @@
   justify-content: space-between;
 }
 
-.App > ul {
-  width: 100%;
-  display: grid;
-  grid-template-columns: 20% 20% 20% 20% 20%;
-  font-family: sans-serif;
-  font-weight: bold;
-  color: lightgreen;
-  justify-content: center;
-}
-
-.coral {
-  background-color: coral;
-}
-.yellow {
-  background-color: yellow;
-}
-
-.green {
-  background-color: green;
-}
-
 .square {
   display: flex;
   flex-direction: column;
@@ -49,17 +28,6 @@
   text-transform: uppercase;
   font-weight: bold;
   color: black;
-}
-
-button.square.green {
-  font-size: 24px;
-}
-
-.Parent {
-  display: flex;
-  justify-content: space-between;
-  width: 800px;
-  height: auto;
 }
 
 .square button {
