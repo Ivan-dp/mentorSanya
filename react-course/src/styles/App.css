@@ -36,12 +36,65 @@ nav a {
 
 .info,
 .home,
-.not-found {
-  width: 200px;
+.toggle-square {
+  width: 100%;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   text-transform: uppercase;
+}
+
+.home {
+  align-items: center;
+  flex-direction: column;
+}
+
+.home h1,
+.home h2,
+.info h1,
+.posts h1 {
+  font-family: sans-serif;
+  font-weight: normal;
+  text-transform: uppercase;
+}
+
+.home h1 {
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.home ul {
+  text-decoration: none;
+  text-transform: uppercase;
+  list-style-type: none;
+  display: block;
+  margin-top: 15px;
+}
+
+.home a {
+  text-decoration: none;
+  font-family: sans-serif;
+  font-weight: normal;
+  font-size: 18px;
+  color: teal;
+}
+
+.not-found {
+  width: auto;
+  height: auto;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  text-transform: uppercase;
+  align-items: center;
+  font-family: sans-serif;
+  font-weight: normal;
+}
+
+.not-found a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #000;
 }
 
 .square {
