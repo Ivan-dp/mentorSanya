@@ -1,31 +1,27 @@
-import React, { useEffect, useState } from 'react';
-import { Par, Toggle } from './components/';
+import { React } from 'react';
+import { Link, Route, Routes } from 'react-router-dom';
+import { Home, Info, NotFound, ToggleSquare } from './pages';
 import './styles/index';
 
 function App() {
-  const [tog, setTog] = useState(false);
-  const [color, setColor] = useState('grey');
-
-  useEffect(() => {
-    setColor(tog ? 'red' : 'grey');
-  }, [tog]);
-
-  console.log(tog);
-  console.log(color);
-
   return (
-    <div className="App">
-      <Par>
-        <div className="square" style={{ backgroundColor: 'pink' }}></div>
-      </Par>
-      <Par>
-        <div className="square" style={{ backgroundColor: color }}>
-          <Toggle>
-            <button onClick={() => setTog(!tog)}>Push ME!</button>
-          </Toggle>
-        </div>
-      </Par>
-    </div>
+    <>
+      <div className="App">
+        <header>
+          <nav>
+            <Link to="/home">Home</Link>
+            <Link to="/info">Info</Link>
+            <Link to="/togglesquare">Issue-25</Link>
+          </nav>
+        </header>
+        <Routes>
+          <Route path="/home" element={<Home />} />
+          <Route path="/info" element={<Info />} />
+          <Route path="/togglesquare" element={<ToggleSquare />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </div>
+    </>
   );
 }
 
