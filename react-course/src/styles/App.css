@@ -36,7 +36,10 @@ nav a {
 
 .info,
 .home,
-.toggle-square {
+.toggle-square,
+.posts {
+  flex-direction: column;
+  align-items: center;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -56,6 +59,37 @@ nav a {
   font-family: sans-serif;
   font-weight: normal;
   text-transform: uppercase;
+}
+
+.post-list {
+  width: 1200px;
+  list-style-type: none;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 20px;
+}
+
+.post {
+  border: 3px solid aquamarine;
+  border-radius: 10px;
+  width: 300px;
+  height: auto;
+  margin: 20px;
+  padding: 10px;
+  font-family: sans-serif;
+}
+
+.post h4 {
+  text-transform: uppercase;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.post p {
+  text-transform: uppercase;
+  font-size: 10px;
 }
 
 .home h1 {
