@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Info, NotFound, ToggleSquare } from './';
+import { Info, NotFound, ToggleSquare, Posts } from './';
 
 const Home = () => {
   return (
@@ -21,6 +21,11 @@ const Home = () => {
         <li>
           <Link to="/togglesquare" component={<ToggleSquare />}>
             Issue 25
+          </Link>
+        </li>
+        <li>
+          <Link to="/posts" component={<Posts />}>
+            Posts
           </Link>
         </li>
       </ul>

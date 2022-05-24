@@ -1,14 +1,10 @@
 import { React } from 'react';
 import { Link, Route, Routes } from 'react-router-dom';
 import { PostList } from './components';
-import { Home, Info, NotFound, ToggleSquare, Posts } from './pages';
+import { Home, Info, NotFound, Posts, ToggleSquare } from './pages';
 import './styles/index';
-import { getPosts, get77 } from './functions';
 
 function App() {
-  getPosts();
-  get77();
-
   return (
     <>
       <div className="App">

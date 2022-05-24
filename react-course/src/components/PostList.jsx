@@ -1,7 +1,16 @@
-import React from 'react';
+import { React, useEffect } from 'react';
+import { getPosts, get77 } from '../functions';
 
 const PostList = () => {
-  return <ul className="post-list"></ul>;
+  useEffect(() => {
+    getPosts();
+    get77();
+  }, []);
+  return (
+    <div>
+      <ul className="post-list"></ul>
+    </div>
+  );
 };
 
 export { PostList };

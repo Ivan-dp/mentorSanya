@@ -14,6 +14,7 @@ const ToggleSquare = () => {
 
   return (
     <div className="toggle-square">
+      <h1>Issue 25</h1>
       <Par>
         <div className="square" style={{ backgroundColor: 'pink' }}></div>
       </Par>
