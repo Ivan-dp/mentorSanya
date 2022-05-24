@@ -61,7 +61,7 @@ nav a {
 }
 
 .post-list {
-  width: 1200px;
+  max-width: 1200px;
   list-style-type: none;
   display: flex;
   justify-content: space-around;
