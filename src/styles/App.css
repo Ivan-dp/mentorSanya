@@ -32,6 +32,7 @@ nav a {
   font-family: sans-serif;
   text-decoration: none;
   margin: 20px;
+  text-transform: uppercase;
 }
 
 .info,
@@ -51,7 +52,8 @@ nav a {
 .home h2,
 .info h1,
 .posts h1,
-.toggle-square h1 {
+.toggle-square h1,
+.not-found h1 {
   font-family: sans-serif;
   font-weight: normal;
   text-transform: uppercase;
