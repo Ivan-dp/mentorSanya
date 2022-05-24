@@ -1,10 +1,9 @@
 import { React, useEffect } from 'react';
-import { getPosts, get77 } from '../functions';
+import { getPosts } from '../functions/getPosts';
 
 const PostList = () => {
   useEffect(() => {
     getPosts();
-    get77();
   }, []);
   return (
     <div>
