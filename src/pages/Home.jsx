@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { PostList } from '../components';
 import { Info, NotFound, ToggleSquare, Posts } from './';
 
 const Home = () => {
@@ -24,7 +25,14 @@ const Home = () => {
           </Link>
         </li>
         <li>
-          <Link to="/posts" component={<Posts />}>
+          <Link
+            to="/posts"
+            component={
+              <Posts>
+                <PostList />
+              </Posts>
+            }
+          >
             Posts
           </Link>
         </li>

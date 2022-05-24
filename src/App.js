@@ -10,10 +10,25 @@ function App() {
       <div className="App">
         <header>
           <nav>
-            <Link to="/home">Home</Link>
-            <Link to="/info">Info</Link>
-            <Link to="/togglesquare">Issue-25</Link>
-            <Link to="/posts">Posts</Link>
+            <Link to="/home" component={<Home />}>
+              Home
+            </Link>
+            <Link to="/info" component={<Info />}>
+              Info
+            </Link>
+            <Link to="/togglesquare" component={<ToggleSquare />}>
+              Issue-25
+            </Link>
+            <Link
+              to="/posts"
+              component={
+                <Posts>
+                  <PostList />
+                </Posts>
+              }
+            >
+              Posts
+            </Link>
           </nav>
         </header>
         <Routes>

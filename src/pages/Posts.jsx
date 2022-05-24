@@ -7,7 +7,7 @@ const Posts = ({ children }) => {
   };
   return (
     <div className="posts">
-      <h1>Posts</h1>
+      <h1 className="some">Posts</h1>
       {children}
     </div>
   );
