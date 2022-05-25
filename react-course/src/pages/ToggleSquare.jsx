@@ -13,7 +13,8 @@ const ToggleSquare = () => {
   console.log(color);
 
   return (
-    <div>
+    <div className="toggle-square">
+      <h1>Issue 25</h1>
       <Par>
         <div className="square" style={{ backgroundColor: 'pink' }}></div>
       </Par>

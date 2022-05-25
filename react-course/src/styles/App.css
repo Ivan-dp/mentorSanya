@@ -32,16 +32,97 @@ nav a {
   font-family: sans-serif;
   text-decoration: none;
   margin: 20px;
+  text-transform: uppercase;
 }
 
 .info,
 .home,
-.not-found {
-  width: 200px;
+.toggle-square,
+.posts {
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   text-transform: uppercase;
+}
+
+.home h1,
+.home h2,
+.info h1,
+.posts h1,
+.toggle-square h1,
+.not-found h1 {
+  font-family: sans-serif;
+  font-weight: normal;
+  text-transform: uppercase;
+  margin: 10px 0;
+}
+
+.post-list {
+  max-width: 1200px;
+  list-style-type: none;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 20px;
+}
+
+.home ul {
+  text-decoration: none;
+  text-transform: uppercase;
+  list-style-type: none;
+  display: block;
+  margin-top: 15px;
+}
+
+.home a {
+  text-decoration: none;
+  font-family: sans-serif;
+  font-weight: normal;
+  font-size: 18px;
+  color: teal;
+}
+
+.post {
+  border: 3px solid aquamarine;
+  border-radius: 10px;
+  width: 300px;
+  height: auto;
+  margin: 20px;
+  padding: 10px;
+  font-family: sans-serif;
+}
+
+.post h4 {
+  text-transform: uppercase;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.post p {
+  text-transform: uppercase;
+  font-size: 10px;
+}
+
+.not-found {
+  width: auto;
+  height: auto;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  text-transform: uppercase;
+  align-items: center;
+  font-family: sans-serif;
+  font-weight: normal;
+}
+
+.not-found a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #000;
 }
 
 .square {
