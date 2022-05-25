@@ -35,7 +35,14 @@ function App() {
           <Route path="/home" element={<Home />} />
           <Route path="/info" element={<Info />} />
           <Route path="/togglesquare" element={<ToggleSquare />} />
-          <Route path="/posts" element={<Posts>{<PostList />}</Posts>} />
+          <Route
+            path="/posts"
+            element={
+              <Posts>
+                <PostList />
+              </Posts>
+            }
+          />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
