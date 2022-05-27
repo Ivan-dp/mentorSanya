@@ -38,7 +38,7 @@ const Home = () => {
         </li>
         <li>
           <Link to="/requestinput" component={<RequestInput />}>
-            Issue 25
+            Issue 34
           </Link>
         </li>
       </ul>

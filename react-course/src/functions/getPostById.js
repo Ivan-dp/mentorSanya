@@ -1,9 +1,11 @@
-const getPostById = (start, end, state) => {
-  fetch('https://jsonplaceholder.typicode.com/posts/')
-    .then((response) => response.json())
-    .then((data) => {
-      state([...data].slice(start, end));
-    });
+const getPostById = (id, state) => {
+  if (id > 0) {
+    fetch('https://jsonplaceholder.typicode.com/posts/' + id)
+      .then((response) => response.json())
+      .then((data) => {
+        state(data);
+      });
+  }
 };
 
 export { getPostById };
