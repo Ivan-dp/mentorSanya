@@ -1,7 +1,7 @@
 import { React } from 'react';
 import { Link, Route, Routes } from 'react-router-dom';
 import { PostList } from './components';
-import { Home, Info, NotFound, Posts, ToggleSquare } from './pages';
+import { Home, Info, NotFound, Posts, RequestInput, ToggleSquare } from './pages';
 import './styles/index';
 
 function App() {
@@ -29,6 +29,9 @@ function App() {
             >
               Posts
             </Link>
+            <Link to="/requestinput" component={<RequestInput />}>
+              issue 34
+            </Link>
           </nav>
         </header>
         <Routes>
@@ -44,6 +47,7 @@ function App() {
             }
           />
           <Route path="*" element={<NotFound />} />
+          <Route path="requestinput" element={<RequestInput />} />
         </Routes>
       </div>
     </>
