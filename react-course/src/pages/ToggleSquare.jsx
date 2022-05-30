@@ -1,5 +1,6 @@
 import { React, useEffect, useState } from 'react';
 import { Par, Toggle } from '../components';
+import { Button } from '@mantine/core';
 
 const ToggleSquare = () => {
   const [tog, setTog] = useState(false);
@@ -21,7 +22,9 @@ const ToggleSquare = () => {
       <Par>
         <div className="square" style={{ backgroundColor: color }}>
           <Toggle>
-            <button onClick={() => setTog(!tog)}>Push ME!</button>
+            <Button size="xs" onClick={() => setTog(!tog)}>
+              Push ME!
+            </Button>
           </Toggle>
         </div>
       </Par>
