@@ -1,6 +1,6 @@
 import { React, useState } from 'react';
 import { Post } from '../components';
-import { getPostById } from '../functions';
+import { getPostById } from '../functions/';
 
 const RequestInput = () => {
   const [start, setStart] = useState('');
@@ -31,7 +31,13 @@ const RequestInput = () => {
             onChange={(e) => setStart(e.target.value)}
           />
         </label>
-        <input type="submit" value="Отправить" onClick={(event) => btn(event, start, setPost)} />
+        <input
+          color="success"
+          size="lg"
+          type="submit"
+          value="Отправить"
+          onClick={(event) => btn(event, start, setPost)}
+        />
       </form>
       <h1 style={{ position: 'absolute' }}>{start}</h1>
       <div>

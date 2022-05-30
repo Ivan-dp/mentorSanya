@@ -1,6 +1,6 @@
 import { React, useState, useEffect } from 'react';
 import { Post } from './';
-import { getPosts } from '../functions';
+import { getPosts } from '../functions/';
 
 const PostList = () => {
   const [posts, setPosts] = useState([]);
