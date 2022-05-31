@@ -1,7 +1,8 @@
 import { React } from 'react';
 import { Link, Route, Routes } from 'react-router-dom';
-import { PostList } from './components';
-import { Home, Info, NotFound, Posts, RequestInput, ToggleSquare } from './pages';
+import { PostList, TodoList } from './components';
+import { todoItems } from './consts';
+import { Home, Info, NotFound, Posts, RequestInput, ToggleSquare, ToDo } from './pages';
 import './styles/index';
 
 function App() {
@@ -32,6 +33,16 @@ function App() {
             <Link to="/requestinput" component={<RequestInput />}>
               issue 34
             </Link>
+            <Link
+              to="/todo"
+              component={
+                <ToDo>
+                  <TodoList>{todoItems}</TodoList>
+                </ToDo>
+              }
+            >
+              Todo List
+            </Link>
           </nav>
         </header>
         <Routes>
@@ -48,6 +59,14 @@ function App() {
           />
           <Route path="*" element={<NotFound />} />
           <Route path="requestinput" element={<RequestInput />} />
+          <Route
+            path="/todo"
+            element={
+              <ToDo>
+                <TodoList>{todoItems}</TodoList>
+              </ToDo>
+            }
+          />
         </Routes>
       </div>
     </>
