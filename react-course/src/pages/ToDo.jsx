@@ -1,11 +1,13 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { TodoList } from '../components';
+import { todoItems } from '../consts';
 
-const ToDo = ({ children }) => {
-  ToDo.propTypes = {
-    children: PropTypes.array.isRequired,
-  };
-  return <div className="todo-page">{children}</div>;
+const ToDo = () => {
+  return (
+    <div className="todo-page">
+      <TodoList items={todoItems} />
+    </div>
+  );
 };
 
 export { ToDo };

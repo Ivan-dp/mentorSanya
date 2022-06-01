@@ -3,20 +3,25 @@ import PropTypes from 'prop-types';
 
 const TodoList = (props) => {
   TodoList.propTypes = {
-    children: PropTypes.array.isRequired,
-    id: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    map: PropTypes.function.isRequired,
-    prop: PropTypes.object.isRequired,
+    items: PropTypes.array.isRequired,
   };
+  let items = [...props.items];
+  console.log(items);
   return (
-    <ul className="todo-list">
-      {props.map((prop) => {
-        <li>
-          {prop.id}. {prop.title}
-        </li>;
-      })}
-    </ul>
+    <div>
+      <form action="">
+        <input type="text" />
+        <button>+</button>
+      </form>
+      <ul className="todo-list">
+        {items.map((item) => {
+          <li key={item}>
+            {item.id}. {item.title}
+          </li>;
+          console.log(item.title);
+        })}
+      </ul>
+    </div>
   );
 };
 
