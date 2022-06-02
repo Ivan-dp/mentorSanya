@@ -1,13 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Input, Button, Grid, Container } from '@mantine/core';
+import { Input, Button, Grid, Container, List } from '@mantine/core';
+import { Item } from './Item.jsx';
 
 const TodoList = (props) => {
   TodoList.propTypes = {
     items: PropTypes.array.isRequired,
   };
-  let items = [...props.items];
-  console.log(items);
   return (
     <Container size={400} px={0}>
       <Grid>
@@ -20,13 +19,11 @@ const TodoList = (props) => {
       </Grid>
       <Grid>
         <Grid.Col>
-          <ul className="todo-list">
-            {items.map((item) => (
-              <li key={item}>
-                {item.id}. {item.title}
-              </li>
+          <List listStyleType="none" className="todo-list">
+            {props.items.map((item) => (
+              <Item key={item} id={item.id} title={item.title} />
             ))}
-          </ul>
+          </List>
         </Grid.Col>
       </Grid>
     </Container>
