@@ -1,6 +1,6 @@
-import { React, useState } from 'react';
+import { Container, Grid, Input, List } from '@mantine/core';
 import PropTypes from 'prop-types';
-import { Input, Button, Grid, Container, List } from '@mantine/core';
+import { React, useState } from 'react';
 import { Item } from './Item.jsx';
 
 const TodoList = (props) => {
@@ -9,14 +9,14 @@ const TodoList = (props) => {
   };
 
   const [items, setItems] = useState([...props.items]); // setItems должен прибавлять новый item={} в items=[...]
-  const [item, setItem] = useState({});
+  const [task, setTask] = useState({});
 
-  function addItem() {
-    if (item.title.length > 0) {
-      setItems([...items, item]);
+  function addItem(e) {
+    if (task.title.length > 0) {
+      setItems([...items, task]);
     }
-    console.log(item);
-    return items;
+    console.log(task);
+    e.preventDefault();
   }
   console.log(items);
 
@@ -26,18 +26,23 @@ const TodoList = (props) => {
         <Grid.Col span={9}>
           <Input
             placeholder="Enter the task"
-            input={item.title}
-            onChange={(event) => setItem({ id: items.length + '', title: event.target.value })}
+            value={task.title}
+            onChange={(event) => {
+              setTask({ id: items.length + '', title: event.target.value });
+              event.preventDefault();
+            }}
           />
         </Grid.Col>
         <Grid.Col span={3}>
-          <Button
-            onClick={() => {
-              addItem();
+          <Input
+            component="button"
+            onClick={(event) => {
+              addItem(event);
+              setTask({ title: '' });
             }}
           >
             +
-          </Button>
+          </Input>
         </Grid.Col>
       </Grid>
       <Grid>
