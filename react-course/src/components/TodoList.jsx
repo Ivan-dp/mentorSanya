@@ -23,7 +23,7 @@ const TodoList = (props) => {
     console.log(task);
     e.preventDefault();
   }
-
+  console.log(items);
   return (
     <Container size={400} px={0}>
       <Grid>

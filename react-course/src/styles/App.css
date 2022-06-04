@@ -184,7 +184,3 @@ h1 {
 .todo-item {
   margin-bottom: 5px;
 }
-
-.todo-item > input:checked ~ .todo-item > label {
-  text-decoration: line-through;
-}
