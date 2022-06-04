@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 const Item = (props) => {
   Item.propTypes = {
-    id: PropTypes.string.isRequired,
+    id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     title: PropTypes.string.isRequired,
   };
   return (
