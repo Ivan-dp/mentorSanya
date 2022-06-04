@@ -4,7 +4,6 @@ import { React, useState } from 'react';
 
 const Item = (props) => {
   const [check, setCheck] = useState(props.checked);
-  console.log(check);
   Item.propTypes = {
     id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     title: PropTypes.string.isRequired,
