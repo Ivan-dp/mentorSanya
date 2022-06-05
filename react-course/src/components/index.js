@@ -4,7 +4,7 @@ import { PostList } from './PostList.jsx';
 import { Post } from './Post.jsx';
 import { TodoList } from './TodoList.jsx';
 import { Item } from './Item.jsx';
-import { SortByTabs } from './SortByTabs.jsx';
+import { FilterByTabs } from './FilterByTabs.jsx';
 
 export { Toggle };
 export { Par };
@@ -12,4 +12,4 @@ export { PostList };
 export { Post };
 export { TodoList };
 export { Item };
-export { SortByTabs };
+export { FilterByTabs };

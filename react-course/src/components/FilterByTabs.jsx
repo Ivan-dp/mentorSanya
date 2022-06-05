@@ -2,9 +2,8 @@ import { Button, Group } from '@mantine/core';
 import { PropTypes } from 'prop-types';
 import { React } from 'react';
 
-const SortByTabs = (props) => {
-  SortByTabs.propTypes = {
-    // all: PropTypes.array.isRequired,
+const FilterByTabs = (props) => {
+  FilterByTabs.propTypes = {
     funcAll: PropTypes.func.isRequired,
     funcTrue: PropTypes.func.isRequired,
     funcFalse: PropTypes.func.isRequired,
@@ -12,17 +11,17 @@ const SortByTabs = (props) => {
 
   return (
     <Group>
-      <Button variant="outline" onClick={props.funcAll}>
+      <Button size="xs" variant="outline" onClick={props.funcAll}>
         Все
       </Button>
-      <Button variant="outline" onClick={props.funcTrue}>
+      <Button size="xs" variant="outline" onClick={props.funcTrue}>
         Выполненые
       </Button>
-      <Button variant="outline" onClick={props.funcFalse}>
+      <Button size="xs" variant="outline" onClick={props.funcFalse}>
         Не выполненые
       </Button>
     </Group>
   );
 };
 
-export { SortByTabs };
+export { FilterByTabs };

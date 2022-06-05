@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { PostList } from '../components';
-import { Info, NotFound, ToggleSquare, Posts, RequestInput } from './';
+import { Info, NotFound, ToggleSquare, Posts, RequestInput, ToDo } from './';
 
 const Home = () => {
   return (
@@ -39,6 +39,11 @@ const Home = () => {
         <li>
           <Link to="/requestinput" component={<RequestInput />}>
             Issue 34
+          </Link>
+        </li>
+        <li>
+          <Link to="/todo" component={<ToDo />}>
+            Todo list
           </Link>
         </li>
       </ul>

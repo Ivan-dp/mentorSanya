@@ -1,8 +1,8 @@
 import { Container, Grid, Input, List } from '@mantine/core';
 import { React, useState } from 'react';
 import { todoFormStyles, todoItems } from '../consts/';
-import { addItem } from '../functions';
-import { Item, SortByTabs } from './';
+import { addItem, checkStyles } from '../functions';
+import { Item, FilterByTabs } from './';
 
 const TodoList = () => {
   const [items, setItems] = useState(todoItems); // setItems должен прибавлять новый item={} в items=[...]
@@ -58,18 +58,18 @@ const TodoList = () => {
               })
               .map((item) => (
                 <Item
+                  styleFunc={checkStyles(item.checked)}
                   key={item.id}
                   id={item.id}
                   title={item.title}
                   checked={item.checked}
                   funCheck={() => {
                     item.checked = !item.checked;
-                    console.log(item.id, item.title, item.checked);
                   }}
                 />
               ))}
           </List>
-          <SortByTabs
+          <FilterByTabs
             funcAll={() => setFilter('all')}
             funcTrue={() => setFilter(true)}
             funcFalse={() => setFilter(false)}
