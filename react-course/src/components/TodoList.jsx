@@ -1,15 +1,16 @@
 import { Container, Grid, Input, List } from '@mantine/core';
 import PropTypes from 'prop-types';
 import { React, useState } from 'react';
-import { Item } from './Item.jsx';
 import { todoFormStyles } from '../consts/';
+
+import { Item, SortByTabs } from './';
 
 const TodoList = (props) => {
   TodoList.propTypes = {
     items: PropTypes.array.isRequired,
   };
 
-  const [items, setItems] = useState([...props.items]); // setItems должен прибавлять новый item={} в items=[...]
+  const [items, setItems] = useState(props.items); // setItems должен прибавлять новый item={} в items=[...]
   const [task, setTask] = useState({
     id: '',
     title: '',
@@ -23,6 +24,9 @@ const TodoList = (props) => {
     console.log(task);
     e.preventDefault();
   }
+
+  console.log(items);
+
   return (
     <Container size={400} px={0}>
       <Grid>
@@ -37,6 +41,7 @@ const TodoList = (props) => {
               }}
             />
           </Grid.Col>
+
           <Grid.Col span={3}>
             <Input
               component="button"
@@ -50,6 +55,7 @@ const TodoList = (props) => {
           </Grid.Col>
         </form>
       </Grid>
+
       <Grid>
         <Grid.Col>
           <List center listStyleType="none" className="todo-list">
@@ -57,6 +63,7 @@ const TodoList = (props) => {
               <Item key={item.id} id={item.id} title={item.title} checked={item.checked} />
             ))}
           </List>
+          <SortByTabs all={items} />
         </Grid.Col>
       </Grid>
     </Container>
