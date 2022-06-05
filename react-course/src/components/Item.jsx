@@ -7,6 +7,7 @@ const Item = (props) => {
     id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     title: PropTypes.string.isRequired,
     checked: PropTypes.bool.isRequired,
+    funCheck: PropTypes.func.isRequired,
   };
 
   function checkStyles() {
@@ -38,10 +39,7 @@ const Item = (props) => {
         color="teal"
         defaultChecked={props.checked}
         label={props.id + '. ' + props.title}
-        onChange={() => {
-          props.checked = !props.checked;
-          console.log(props.id, props.title, props.checked);
-        }}
+        onChange={props.funCheck}
       />
     </List.Item>
   );
