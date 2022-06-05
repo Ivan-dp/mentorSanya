@@ -1,40 +1,24 @@
 import { Button, Group } from '@mantine/core';
 import { PropTypes } from 'prop-types';
-import { React, useState } from 'react';
+import { React } from 'react';
 
 const SortByTabs = (props) => {
-  const [list, setList] = useState(props.all);
   SortByTabs.propTypes = {
-    all: PropTypes.array.isRequired,
+    // all: PropTypes.array.isRequired,
+    funcAll: PropTypes.func.isRequired,
+    funcTrue: PropTypes.func.isRequired,
+    funcFalse: PropTypes.func.isRequired,
   };
-  //   console.log(list);
+
   return (
     <Group>
-      <Button
-        variant="outline"
-        onClick={() => {
-          setList(props.all);
-          console.log(list);
-        }}
-      >
+      <Button variant="outline" onClick={props.funcAll}>
         Все
       </Button>
-      <Button
-        variant="outline"
-        onClick={() => {
-          setList(props.all.filter((item) => item.checked === true));
-          console.log(list);
-        }}
-      >
+      <Button variant="outline" onClick={props.funcTrue}>
         Выполненые
       </Button>
-      <Button
-        variant="outline"
-        onClick={() => {
-          setList(props.all.filter((item) => item.checked === false));
-          console.log(list);
-        }}
-      >
+      <Button variant="outline" onClick={props.funcFalse}>
         Не выполненые
       </Button>
     </Group>

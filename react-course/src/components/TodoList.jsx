@@ -1,6 +1,7 @@
 import { Container, Grid, Input, List } from '@mantine/core';
 import { React, useState } from 'react';
 import { todoFormStyles, todoItems } from '../consts/';
+import { sortTodoItems, addItem } from '../functions';
 import { Item, SortByTabs } from './';
 
 const TodoList = () => {
@@ -10,19 +11,10 @@ const TodoList = () => {
     title: '',
     checked: false,
   });
-
-  function addItem(e) {
-    if (task.title.length > 0) {
-      setItems([...items, task]);
-    }
-    console.log(task);
-    e.preventDefault();
-  }
-
-  console.log(items);
+  const list = [...items];
 
   return (
-    <Container size={400} px={0}>
+    <Container size={800} px={0}>
       <Grid>
         <form style={todoFormStyles}>
           <Grid.Col span={9}>
@@ -40,7 +32,7 @@ const TodoList = () => {
             <Input
               component="button"
               onClick={(event) => {
-                addItem(event);
+                addItem(event, items, task, setItems);
                 setTask({ title: '' });
               }}
             >
@@ -66,7 +58,18 @@ const TodoList = () => {
               />
             ))}
           </List>
-          <SortByTabs all={items} />
+          <SortByTabs
+            // all={items}
+            funcAll={() => {
+              sortTodoItems(list, 'all', setItems);
+            }}
+            funcTrue={() => {
+              sortTodoItems(list, true, setItems);
+            }}
+            funcFalse={() => {
+              sortTodoItems(list, false, setItems);
+            }}
+          />
         </Grid.Col>
       </Grid>
     </Container>

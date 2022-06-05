@@ -1,12 +1,12 @@
-function sortTodoItems(list, bool) {
-  let newArr = [];
-  for (let i of list) {
-    if (i.checked === bool) {
-      newArr.push({ ...i });
-    }
+function sortTodoItems(list, bool, set) {
+  switch (bool) {
+    case 'all':
+      return list;
+    case true:
+      return set(list.filter((item) => item.checked === true));
+    case false:
+      return set(list.filter((item) => item.checked === false));
   }
-  console.log(newArr);
-  return newArr;
 }
 
 export { sortTodoItems };

@@ -1,6 +1,7 @@
 import { Checkbox, List } from '@mantine/core';
 import PropTypes from 'prop-types';
 import { React } from 'react';
+import { checkStyles } from '../functions';
 
 const Item = (props) => {
   Item.propTypes = {
@@ -10,24 +11,6 @@ const Item = (props) => {
     funCheck: PropTypes.func.isRequired,
   };
 
-  function checkStyles() {
-    if (props.checked) {
-      return {
-        label: {
-          textDecoration: 'line-through',
-          color: '#cbc1c1',
-          textTransform: 'uppercase',
-        },
-      };
-    }
-    return {
-      label: {
-        textTransform: 'uppercase',
-      },
-    };
-  }
-  console.log(props.checked);
-
   return (
     <List.Item className="todo-item">
       <Checkbox
@@ -35,7 +18,7 @@ const Item = (props) => {
           input: 'todo-item__check',
           label: 'todo-item__label',
         }}
-        styles={checkStyles()}
+        styles={checkStyles(props.checked)}
         color="teal"
         defaultChecked={props.checked}
         label={props.id + '. ' + props.title}
