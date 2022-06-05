@@ -180,3 +180,7 @@ h1 {
   color: white;
   background-color: darkslategray;
 }
+
+.todo-item {
+  margin-bottom: 5px;
+}

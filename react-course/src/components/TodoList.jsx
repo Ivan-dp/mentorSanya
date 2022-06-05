@@ -13,6 +13,7 @@ const TodoList = (props) => {
   const [task, setTask] = useState({
     id: '',
     title: '',
+    checked: false,
   });
 
   function addItem(e) {
@@ -22,8 +23,6 @@ const TodoList = (props) => {
     console.log(task);
     e.preventDefault();
   }
-  console.log(items);
-
   return (
     <Container size={400} px={0}>
       <Grid>
@@ -33,7 +32,7 @@ const TodoList = (props) => {
               placeholder="Enter the task"
               value={task.title}
               onChange={(event) => {
-                setTask({ id: items.length + '', title: event.target.value });
+                setTask({ id: items.length + '', title: event.target.value, checked: false });
                 event.preventDefault();
               }}
             />
@@ -53,9 +52,9 @@ const TodoList = (props) => {
       </Grid>
       <Grid>
         <Grid.Col>
-          <List listStyleType="none" className="todo-list">
+          <List center listStyleType="none" className="todo-list">
             {items.map((item) => (
-              <Item key={item.id} id={item.id} title={item.title} />
+              <Item key={item.id} id={item.id} title={item.title} checked={item.checked} />
             ))}
           </List>
         </Grid.Col>
