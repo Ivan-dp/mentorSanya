@@ -1,7 +1,7 @@
 import { Container, Grid, Input, List } from '@mantine/core';
 import { React, useState } from 'react';
 import { todoFormStyles, todoItems } from '../consts/';
-import { sortTodoItems, addItem } from '../functions';
+import { addItem } from '../functions';
 import { Item, SortByTabs } from './';
 
 const TodoList = () => {
@@ -11,7 +11,7 @@ const TodoList = () => {
     title: '',
     checked: false,
   });
-  const list = [...items];
+  const [filter, setFilter] = useState('all');
 
   return (
     <Container size={800} px={0}>
@@ -45,30 +45,34 @@ const TodoList = () => {
       <Grid>
         <Grid.Col>
           <List center listStyleType="none" className="todo-list">
-            {items.map((item) => (
-              <Item
-                key={item.id}
-                id={item.id}
-                title={item.title}
-                checked={item.checked}
-                funCheck={() => {
-                  item.checked = !item.checked;
-                  console.log(item.id, item.title, item.checked);
-                }}
-              />
-            ))}
+            {items
+              .filter((item) => {
+                switch (filter) {
+                  case 'all':
+                    return item;
+                  case true:
+                    return item.checked;
+                  case false:
+                    return !item.checked;
+                }
+              })
+              .map((item) => (
+                <Item
+                  key={item.id}
+                  id={item.id}
+                  title={item.title}
+                  checked={item.checked}
+                  funCheck={() => {
+                    item.checked = !item.checked;
+                    console.log(item.id, item.title, item.checked);
+                  }}
+                />
+              ))}
           </List>
           <SortByTabs
-            // all={items}
-            funcAll={() => {
-              sortTodoItems(list, 'all', setItems);
-            }}
-            funcTrue={() => {
-              sortTodoItems(list, true, setItems);
-            }}
-            funcFalse={() => {
-              sortTodoItems(list, false, setItems);
-            }}
+            funcAll={() => setFilter('all')}
+            funcTrue={() => setFilter(true)}
+            funcFalse={() => setFilter(false)}
           />
         </Grid.Col>
       </Grid>
