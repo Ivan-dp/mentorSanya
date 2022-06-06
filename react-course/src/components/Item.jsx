@@ -1,6 +1,6 @@
 import { Checkbox, List } from '@mantine/core';
 import PropTypes from 'prop-types';
-import { React } from 'react';
+import { React, useState } from 'react';
 
 const Item = (props) => {
   Item.propTypes = {
@@ -10,6 +10,8 @@ const Item = (props) => {
     funCheck: PropTypes.func.isRequired,
     styleFunc: PropTypes.object.isRequired,
   };
+  // eslint-disable-next-line no-unused-vars
+  const [bool, setBool] = useState(props.checked);
 
   return (
     <List.Item className="todo-item">

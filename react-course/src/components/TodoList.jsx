@@ -2,7 +2,7 @@ import { Container, Grid, Input, List } from '@mantine/core';
 import { React, useState } from 'react';
 import { todoFormStyles, todoItems } from '../consts/';
 import { addItem, checkStyles } from '../functions';
-import { Item, FilterByTabs } from './';
+import { FilterByTabs, Item } from './';
 
 const TodoList = () => {
   const [items, setItems] = useState(todoItems); // setItems должен прибавлять новый item={} в items=[...]
@@ -63,9 +63,7 @@ const TodoList = () => {
                   id={item.id}
                   title={item.title}
                   checked={item.checked}
-                  funCheck={() => {
-                    item.checked = !item.checked;
-                  }}
+                  funCheck={() => (item.checked = !item.checked)}
                 />
               ))}
           </List>
