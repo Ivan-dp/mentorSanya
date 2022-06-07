@@ -184,3 +184,13 @@ h1 {
 .todo-item {
   margin-bottom: 5px;
 }
+
+.checked {
+  text-decoration: line-through;
+  color: #cbc1c1;
+  text-transform: uppercase;
+}
+
+.unchecked {
+  text-transform: uppercase;
+}

@@ -11,31 +11,15 @@ const Item = (props) => {
     checked: PropTypes.bool.isRequired,
   };
 
-  function checkStyles() {
-    if (check) {
-      return {
-        label: {
-          textDecoration: 'line-through',
-          color: '#cbc1c1',
-          textTransform: 'uppercase',
-        },
-      };
-    }
-    return {
-      label: {
-        textTransform: 'uppercase',
-      },
-    };
-  }
-
   return (
     <List.Item className="todo-item">
       <Checkbox
         classNames={{
-          input: 'todo-item__check',
-          label: 'todo-item__label',
+          label: function () {
+            return check ? 'checked' : 'unchecked';
+          },
         }}
-        styles={checkStyles()}
+        // styles={checkStyles()}
         color="teal"
         defaultChecked={check}
         label={props.id + '. ' + props.title}
