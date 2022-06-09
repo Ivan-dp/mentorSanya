@@ -3,11 +3,14 @@ import PropTypes from 'prop-types';
 import { React, useState } from 'react';
 
 const Item = (props) => {
-  const [check, setCheck] = useState(props.checked);
-  console.log(check);
+  const [task, setTask] = useState(props.item);
+
+  console.log(task.checked, task);
+
   Item.propTypes = {
     id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     title: PropTypes.string.isRequired,
+    item: PropTypes.object.isRequired,
     checked: PropTypes.bool.isRequired,
   };
 
@@ -16,14 +19,13 @@ const Item = (props) => {
       <Checkbox
         classNames={{
           label: function () {
-            return check ? 'checked' : 'unchecked';
+            return task.checked ? 'checked' : 'unchecked';
           },
         }}
-        // styles={checkStyles()}
         color="teal"
-        defaultChecked={check}
-        label={props.id + '. ' + props.title}
-        onChange={() => setCheck(!check)}
+        defaultChecked={task.checked}
+        label={task.id + '. ' + props.title}
+        onChange={() => setTask(!task.checked)}
       />
     </List.Item>
   );

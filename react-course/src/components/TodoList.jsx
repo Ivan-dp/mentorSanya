@@ -9,20 +9,16 @@ const TodoList = (props) => {
     items: PropTypes.array.isRequired,
   };
 
-  const [items, setItems] = useState([...props.items]); // setItems должен прибавлять новый item={} в items=[...]
-  const [task, setTask] = useState({
-    id: '',
-    title: '',
-    checked: false,
-  });
+  const [items, setItems] = useState(props.items); // DONE
+  const [title, setTitle] = useState(items.title);
 
-  function addItem(e) {
-    if (task.title.length > 0) {
-      setItems([...items, task]);
-    }
-    console.log(task);
-    e.preventDefault();
-  }
+  // function addItem(e) {
+  //   if (title.length > 0) {
+  //     setItems([...items, task]);
+  //   }
+  //   console.log(task);
+  //   e.preventDefault();
+  // }
   console.log(items);
   return (
     <Container size={400} px={0}>
@@ -31,9 +27,9 @@ const TodoList = (props) => {
           <Grid.Col span={9}>
             <Input
               placeholder="Enter the task"
-              value={task.title}
+              value={title}
               onChange={(event) => {
-                setTask({ id: items.length + '', title: event.target.value, checked: false });
+                setTitle(event.target.value);
                 event.preventDefault();
               }}
             />
@@ -55,7 +51,7 @@ const TodoList = (props) => {
         <Grid.Col>
           <List center listStyleType="none" className="todo-list">
             {items.map((item) => (
-              <Item key={item.id} id={item.id} title={item.title} checked={item.checked} />
+              <Item key={item.id} item={item} title={title} />
             ))}
           </List>
         </Grid.Col>
