@@ -184,3 +184,8 @@ h1 {
 .todo-item {
   margin-bottom: 5px;
 }
+
+.todo-form {
+  display: flex;
+  justify-content: space-between;
+}
