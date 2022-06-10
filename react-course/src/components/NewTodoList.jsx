@@ -19,6 +19,7 @@ const NewTodoList = (props) => {
 
   console.log(items);
 
+  // eslint-disable-next-line no-unused-vars
   const handleComplete = (index) => {
     const newItems = [...items];
     if (newItems[index].checked === false) {
@@ -75,21 +76,26 @@ const NewTodoList = (props) => {
                   return item;
                 }
               })
-              .map((item, index) => (
-                <List.Item key={index} className="todo-item">
-                  <Checkbox
-                    classNames={{
-                      label: 'todo-item__label',
-                    }}
-                    styles={checkStyles(item.checked)}
-                    color="teal"
-                    // defaultChecked={item.checked}
-                    checked={item.checked}
-                    label={item.id + '. ' + item.title}
-                    onChange={() => handleComplete(index)}
-                  />
-                </List.Item>
-              ))}
+              .map(
+                (item) => (
+                  console.log(item),
+                  (
+                    <List.Item key={item.id} className="todo-item">
+                      <Checkbox
+                        classNames={{
+                          label: 'todo-item__label',
+                        }}
+                        styles={checkStyles(item.checked)}
+                        color="teal"
+                        // defaultChecked={item.checked}
+                        checked={item.checked}
+                        label={item.id + '. ' + item.title}
+                        onChange={() => handleComplete(item.id)}
+                      />
+                    </List.Item>
+                  )
+                )
+              )}
           </List>
           <Group>
             <Button size="xs" variant="outline" onClick={() => setFilter('all')}>
