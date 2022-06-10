@@ -1,4 +1,4 @@
-import { Checkbox, Container, Grid, Input, List } from '@mantine/core';
+import { Checkbox, Container, Grid, Input, List, Group, Button } from '@mantine/core';
 import { PropTypes } from 'prop-types';
 import { React, useState } from 'react';
 
@@ -15,6 +15,7 @@ const NewTodoList = (props) => {
     title: '',
     checked: false,
   });
+  const [filter, setFilter] = useState('all');
 
   console.log(items);
 
@@ -45,7 +46,7 @@ const NewTodoList = (props) => {
               placeholder="Enter the task"
               value={task.title}
               onChange={(event) => {
-                setTask({ id: items.length, title: event.target.value, checked: false });
+                setTask({ id: items.length + '', title: event.target.value, checked: false });
                 event.preventDefault();
               }}
             ></Input>
@@ -64,21 +65,43 @@ const NewTodoList = (props) => {
       <Grid>
         <Grid.Col>
           <List center listStyleType="none" className="todo-list">
-            {items.map((item, index) => (
-              <List.Item key={index} className="todo-item">
-                <Checkbox
-                  classNames={{
-                    label: 'todo-item__label',
-                  }}
-                  styles={checkStyles(item.checked)}
-                  color="teal"
-                  defaultChecked={item.checked}
-                  label={item.id + '. ' + item.title}
-                  onChange={() => handleComplete(index)}
-                />
-              </List.Item>
-            ))}
+            {items
+              .filter((item) => {
+                if (filter === 'checked') {
+                  return item.checked;
+                } else if (filter === 'unchecked') {
+                  return !item.checked;
+                } else {
+                  return item;
+                }
+              })
+              .map((item, index) => (
+                <List.Item key={index} className="todo-item">
+                  <Checkbox
+                    classNames={{
+                      label: 'todo-item__label',
+                    }}
+                    styles={checkStyles(item.checked)}
+                    color="teal"
+                    // defaultChecked={item.checked}
+                    checked={item.checked}
+                    label={item.id + '. ' + item.title}
+                    onChange={() => handleComplete(index)}
+                  />
+                </List.Item>
+              ))}
           </List>
+          <Group>
+            <Button size="xs" variant="outline" onClick={() => setFilter('all')}>
+              Все
+            </Button>
+            <Button size="xs" variant="outline" onClick={() => setFilter('checked')}>
+              Выполненые
+            </Button>
+            <Button size="xs" variant="outline" onClick={() => setFilter('unchecked')}>
+              Не выполненые
+            </Button>
+          </Group>
         </Grid.Col>
       </Grid>
     </Container>
