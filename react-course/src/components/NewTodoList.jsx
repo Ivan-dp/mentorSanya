@@ -10,6 +10,12 @@ const NewTodoList = (props) => {
   };
 
   const [items, setItems] = useState(props.items);
+  const [task, setTask] = useState({
+    id: '',
+    title: '',
+    checked: false,
+  });
+
   console.log(items);
 
   const handleComplete = (index) => {
@@ -22,15 +28,36 @@ const NewTodoList = (props) => {
     return setItems(newItems);
   };
 
+  function addItem(e) {
+    if (task.title.length > 0) {
+      setItems([...items, task]);
+    }
+    console.log(task);
+    e.preventDefault();
+  }
+
   return (
     <Container>
       <Grid>
         <form className="todo-form">
           <Grid.Col span={9}>
-            <Input placeholder="Enter the task"></Input>
+            <Input
+              placeholder="Enter the task"
+              value={task.title}
+              onChange={(event) => {
+                setTask({ id: items.length, title: event.target.value, checked: false });
+                event.preventDefault();
+              }}
+            ></Input>
           </Grid.Col>
           <Grid.Col span={3}>
-            <Input component="button"></Input>
+            <Input
+              component="button"
+              onClick={(event) => {
+                addItem(event);
+                setTask({ title: '' });
+              }}
+            ></Input>
           </Grid.Col>
         </form>
       </Grid>
