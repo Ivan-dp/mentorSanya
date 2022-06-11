@@ -16,6 +16,7 @@ const NewTodoList = (props) => {
     checked: false,
   });
   const [filter, setFilter] = useState('all');
+  const [title, setTitle] = useState('');
 
   console.log(items);
 
@@ -58,7 +59,6 @@ const NewTodoList = (props) => {
       ident = 0;
     }
     console.log(ident);
-    console.log(items[items.length - 1].id);
     return ident;
   };
 
@@ -82,9 +82,10 @@ const NewTodoList = (props) => {
           <Grid.Col span={9}>
             <Input
               placeholder="Enter the task"
-              value={task.title}
+              value={title}
               onChange={(event) => {
-                setTask({ id: newId(), title: event.target.value, checked: false });
+                setTitle(event.target.value);
+                setTask({ id: newId(), title: title, checked: false });
                 event.preventDefault();
               }}
             ></Input>
@@ -94,7 +95,7 @@ const NewTodoList = (props) => {
               component="button"
               onClick={(event) => {
                 addItem(event);
-                setTask({ title: '' });
+                setTitle('');
               }}
             ></Input>
           </Grid.Col>
