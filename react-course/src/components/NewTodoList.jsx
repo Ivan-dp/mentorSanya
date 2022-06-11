@@ -11,13 +11,13 @@ const NewTodoList = (props) => {
   };
 
   const [items, setItems] = useState(props.items);
+  const [filter, setFilter] = useState('all');
+  const [title, setTitle] = useState('');
   const [task, setTask] = useState({
     id: '',
     title: '',
     checked: false,
   });
-  const [filter, setFilter] = useState('all');
-  const [title, setTitle] = useState('');
 
   console.log(items);
 
@@ -36,6 +36,7 @@ const NewTodoList = (props) => {
       setItems([...items, task]);
     }
     console.log(task);
+    console.log(title);
     e.preventDefault();
   }
 
@@ -76,6 +77,18 @@ const NewTodoList = (props) => {
     return setItems([...newItems]);
   };
 
+  const editTitle = (event) => {
+    setTitle(event.target.value);
+    setTask({ id: newId(), title: title, checked: false });
+    event.preventDefault();
+    console.log(title);
+  };
+
+  const enterTitle = (event) => {
+    addItem(event);
+    setTitle('');
+  };
+
   return (
     <Container>
       <Grid>
@@ -84,21 +97,11 @@ const NewTodoList = (props) => {
             <Input
               placeholder="Enter the task"
               value={title}
-              onChange={(event) => {
-                setTitle(event.target.value);
-                setTask({ id: newId(), title: title, checked: false });
-                event.preventDefault();
-              }}
+              onChange={(event) => editTitle(event)}
             ></Input>
           </Grid.Col>
           <Grid.Col span={2}>
-            <Input
-              component="button"
-              onClick={(event) => {
-                addItem(event);
-                setTitle('');
-              }}
-            ></Input>
+            <Input component="button" onClick={(event) => enterTitle(event)}></Input>
           </Grid.Col>
         </form>
       </Grid>
