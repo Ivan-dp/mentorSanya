@@ -3,6 +3,7 @@ import { PropTypes } from 'prop-types';
 import { React, useState } from 'react';
 import { X, ClearAll, ListDetails, ListCheck, Checklist } from 'tabler-icons-react';
 import { checkStyles } from '../functions';
+import { Link, Routes, Route } from 'react-router-dom';
 
 const NewTodoList = (props) => {
   NewTodoList.propTypes = {
@@ -148,33 +149,44 @@ const NewTodoList = (props) => {
               ))}
           </List>
           <Group>
-            <Button
-              color="teal"
-              size="xs"
-              variant="outline"
-              onClick={() => setFilter('all')}
-              leftIcon={<Checklist size={16} strokeWidth={1.5} color={'teal'} />}
-            >
-              Все
-            </Button>
-            <Button
-              color="teal"
-              size="xs"
-              variant="outline"
-              onClick={() => setFilter('checked')}
-              leftIcon={<ListCheck size={16} strokeWidth={1.5} color={'teal'} />}
-            >
-              Выполненые
-            </Button>
-            <Button
-              color="teal"
-              size="xs"
-              variant="outline"
-              onClick={() => setFilter('unchecked')}
-              leftIcon={<ListDetails size={16} strokeWidth={1.5} color={'teal'} />}
-            >
-              Не выполненые
-            </Button>
+            <Link to="/newpage/all">
+              <Button
+                color="teal"
+                size="xs"
+                variant="outline"
+                onClick={() => setFilter('all')}
+                leftIcon={<Checklist size={16} strokeWidth={1.5} color={'teal'} />}
+              >
+                Все
+              </Button>
+            </Link>
+            <Link to="/newpage/completed">
+              <Button
+                color="teal"
+                size="xs"
+                variant="outline"
+                onClick={() => setFilter('checked')}
+                leftIcon={<ListCheck size={16} strokeWidth={1.5} color={'teal'} />}
+              >
+                Выполненые
+              </Button>
+            </Link>
+            <Link to="/newpage/uncompleted">
+              <Button
+                color="teal"
+                size="xs"
+                variant="outline"
+                onClick={() => setFilter('unchecked')}
+                leftIcon={<ListDetails size={16} strokeWidth={1.5} color={'teal'} />}
+              >
+                Не выполненые
+              </Button>
+            </Link>
+            <Routes>
+              <Route path="/newpage/all" />
+              <Route path="/newpage/completed" />
+              <Route path="/newpage/uncompleted" />
+            </Routes>
             <Button
               color="teal"
               size="xs"
