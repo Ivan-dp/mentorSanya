@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/mentorSanya/static/css/main.37e19a20.css",
-    "main.js": "/mentorSanya/static/js/main.fc459728.js",
+    "main.js": "/mentorSanya/static/js/main.56ba18bf.js",
     "index.html": "/mentorSanya/index.html",
     "main.37e19a20.css.map": "/mentorSanya/static/css/main.37e19a20.css.map",
-    "main.fc459728.js.map": "/mentorSanya/static/js/main.fc459728.js.map"
+    "main.56ba18bf.js.map": "/mentorSanya/static/js/main.56ba18bf.js.map"
   },
   "entrypoints": [
     "static/css/main.37e19a20.css",
-    "static/js/main.fc459728.js"
+    "static/js/main.56ba18bf.js"
   ]
 }
