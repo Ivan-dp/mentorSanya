@@ -1,7 +1,7 @@
 import { Checkbox, Container, Grid, Input, List, Group, Button } from '@mantine/core';
 import { PropTypes } from 'prop-types';
 import { React, useState } from 'react';
-import { X } from 'tabler-icons-react';
+import { X, ClearAll, ListDetails, ListCheck, Checklist } from 'tabler-icons-react';
 import { checkStyles } from '../functions';
 
 const NewTodoList = (props) => {
@@ -149,16 +149,19 @@ const NewTodoList = (props) => {
           </List>
           <Group>
             <Button color="teal" size="xs" variant="outline" onClick={() => setFilter('all')}>
+              <Checklist size={16} strokeWidth={1.5} color={'teal'} />
               Все
             </Button>
             <Button color="teal" size="xs" variant="outline" onClick={() => setFilter('checked')}>
+              <ListCheck size={16} strokeWidth={1.5} color={'teal'} />
               Выполненые
             </Button>
             <Button color="teal" size="xs" variant="outline" onClick={() => setFilter('unchecked')}>
+              <ListDetails size={16} strokeWidth={1.5} color={'teal'} />
               Не выполненые
             </Button>
             <Button color="teal" size="xs" variant="outline" onClick={() => clearCompleted()}>
-              Очистить выполненые
+              <ClearAll size={16} strokeWidth={1.5} color={'teal'} /> Очистить выполненые
             </Button>
           </Group>
         </Grid.Col>
