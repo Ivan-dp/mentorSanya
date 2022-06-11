@@ -11,13 +11,9 @@ const NewTodoList = (props) => {
   };
 
   const [items, setItems] = useState(props.items);
-  const [filter, setFilter] = useState('all');
+  const [task, setTask] = useState({});
   const [title, setTitle] = useState('');
-  const [task, setTask] = useState({
-    id: '',
-    title: '',
-    checked: false,
-  });
+  const [filter, setFilter] = useState('all');
 
   console.log(items);
 
@@ -79,7 +75,7 @@ const NewTodoList = (props) => {
 
   const editTitle = (event) => {
     setTitle(event.target.value);
-    setTask({ id: newId(), title: title, checked: false });
+    setTask({ id: newId(), title: event.target.value, checked: false });
     event.preventDefault();
     console.log(title);
   };
