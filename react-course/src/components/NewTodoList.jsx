@@ -1,7 +1,7 @@
 import { Checkbox, Container, Grid, Input, List, Group, Button } from '@mantine/core';
 import { PropTypes } from 'prop-types';
 import { React, useState } from 'react';
-
+import { X } from 'tabler-icons-react';
 import { checkStyles } from '../functions';
 
 const NewTodoList = (props) => {
@@ -51,10 +51,28 @@ const NewTodoList = (props) => {
   };
 
   const newId = () => {
-    const ident = items[items.length - 1].id + 1;
+    let ident;
+    if (items.length != 0) {
+      ident = items[items.length - 1].id + 1;
+    } else {
+      ident = 0;
+    }
     console.log(ident);
     console.log(items[items.length - 1].id);
     return ident;
+  };
+
+  const clearTask = () => {
+    const newItems = [];
+    for (let i of items) {
+      if (i.checked !== null) {
+        newItems.push(i);
+      }
+    }
+    for (let i = 0; i < newItems.length; i += 1) {
+      newItems[i].id = i;
+    }
+    return setItems([...newItems]);
   };
 
   return (
@@ -96,7 +114,11 @@ const NewTodoList = (props) => {
                 }
               })
               .map((item) => (
-                <List.Item key={item.id} className="todo-item">
+                <List.Item
+                  key={item.id}
+                  className="todo-item"
+                  styles={{ itemWrapper: { display: 'flex', justifyContent: 'space-between' } }}
+                >
                   <Checkbox
                     classNames={{
                       label: 'todo-item__label',
@@ -108,20 +130,33 @@ const NewTodoList = (props) => {
                     label={item.id + '. ' + item.title}
                     onChange={() => handleComplete(item.id)}
                   />
+                  <Button
+                    color="teal"
+                    radius="xl"
+                    size="xs"
+                    compact
+                    variant="outline"
+                    onClick={() => {
+                      item.checked = null;
+                      clearTask();
+                    }}
+                  >
+                    <X size={14} strokeWidth={1} color={'#700032'} />
+                  </Button>
                 </List.Item>
               ))}
           </List>
           <Group>
-            <Button size="xs" variant="outline" onClick={() => setFilter('all')}>
+            <Button color="teal" size="xs" variant="outline" onClick={() => setFilter('all')}>
               Все
             </Button>
-            <Button size="xs" variant="outline" onClick={() => setFilter('checked')}>
+            <Button color="teal" size="xs" variant="outline" onClick={() => setFilter('checked')}>
               Выполненые
             </Button>
-            <Button size="xs" variant="outline" onClick={() => setFilter('unchecked')}>
+            <Button color="teal" size="xs" variant="outline" onClick={() => setFilter('unchecked')}>
               Не выполненые
             </Button>
-            <Button size="xs" variant="outline" onClick={() => clearCompleted()}>
+            <Button color="teal" size="xs" variant="outline" onClick={() => clearCompleted()}>
               Очистить выполненые
             </Button>
           </Group>
