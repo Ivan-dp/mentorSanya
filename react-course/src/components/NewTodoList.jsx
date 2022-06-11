@@ -19,12 +19,12 @@ const NewTodoList = (props) => {
 
   console.log(items);
 
-  const handleComplete = (index) => {
+  const handleComplete = (i) => {
     const newItems = [...items];
-    if (newItems[index].checked === false) {
-      newItems[index].checked = true;
+    if (newItems[i].checked === false) {
+      newItems[i].checked = true;
     } else {
-      newItems[index].checked = false;
+      newItems[i].checked = false;
     }
     return setItems(newItems);
   };
@@ -37,6 +37,26 @@ const NewTodoList = (props) => {
     e.preventDefault();
   }
 
+  const clearCompleted = () => {
+    const newItems = [];
+    for (let i of items) {
+      if (i.checked === false) {
+        newItems.push(i);
+      }
+    }
+    for (let i = 0; i < newItems.length; i += 1) {
+      newItems[i].id = i;
+    }
+    return setItems([...newItems]);
+  };
+
+  const newId = () => {
+    const ident = items[items.length - 1].id + 1;
+    console.log(ident);
+    console.log(items[items.length - 1].id);
+    return ident;
+  };
+
   return (
     <Container>
       <Grid>
@@ -46,7 +66,7 @@ const NewTodoList = (props) => {
               placeholder="Enter the task"
               value={task.title}
               onChange={(event) => {
-                setTask({ id: items.length + '', title: event.target.value, checked: false });
+                setTask({ id: newId(), title: event.target.value, checked: false });
                 event.preventDefault();
               }}
             ></Input>
@@ -100,6 +120,9 @@ const NewTodoList = (props) => {
             </Button>
             <Button size="xs" variant="outline" onClick={() => setFilter('unchecked')}>
               Не выполненые
+            </Button>
+            <Button size="xs" variant="outline" onClick={() => clearCompleted()}>
+              Очистить выполненые
             </Button>
           </Group>
         </Grid.Col>
