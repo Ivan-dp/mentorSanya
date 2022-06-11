@@ -79,7 +79,7 @@ const NewTodoList = (props) => {
     <Container>
       <Grid>
         <form className="todo-form">
-          <Grid.Col span={9}>
+          <Grid.Col span={10}>
             <Input
               placeholder="Enter the task"
               value={title}
@@ -90,7 +90,7 @@ const NewTodoList = (props) => {
               }}
             ></Input>
           </Grid.Col>
-          <Grid.Col span={3}>
+          <Grid.Col span={2}>
             <Input
               component="button"
               onClick={(event) => {
@@ -148,20 +148,41 @@ const NewTodoList = (props) => {
               ))}
           </List>
           <Group>
-            <Button color="teal" size="xs" variant="outline" onClick={() => setFilter('all')}>
-              <Checklist size={16} strokeWidth={1.5} color={'teal'} />
+            <Button
+              color="teal"
+              size="xs"
+              variant="outline"
+              onClick={() => setFilter('all')}
+              leftIcon={<Checklist size={16} strokeWidth={1.5} color={'teal'} />}
+            >
               Все
             </Button>
-            <Button color="teal" size="xs" variant="outline" onClick={() => setFilter('checked')}>
-              <ListCheck size={16} strokeWidth={1.5} color={'teal'} />
+            <Button
+              color="teal"
+              size="xs"
+              variant="outline"
+              onClick={() => setFilter('checked')}
+              leftIcon={<ListCheck size={16} strokeWidth={1.5} color={'teal'} />}
+            >
               Выполненые
             </Button>
-            <Button color="teal" size="xs" variant="outline" onClick={() => setFilter('unchecked')}>
-              <ListDetails size={16} strokeWidth={1.5} color={'teal'} />
+            <Button
+              color="teal"
+              size="xs"
+              variant="outline"
+              onClick={() => setFilter('unchecked')}
+              leftIcon={<ListDetails size={16} strokeWidth={1.5} color={'teal'} />}
+            >
               Не выполненые
             </Button>
-            <Button color="teal" size="xs" variant="outline" onClick={() => clearCompleted()}>
-              <ClearAll size={16} strokeWidth={1.5} color={'teal'} /> Очистить выполненые
+            <Button
+              color="teal"
+              size="xs"
+              variant="outline"
+              onClick={() => clearCompleted()}
+              leftIcon={<ClearAll size={16} strokeWidth={1.5} color={'teal'} />}
+            >
+              Очистить выполненые
             </Button>
           </Group>
         </Grid.Col>
