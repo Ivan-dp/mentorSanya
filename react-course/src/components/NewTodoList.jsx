@@ -3,6 +3,7 @@ import { PropTypes } from 'prop-types';
 import { React, useState } from 'react';
 import { X, ClearAll, ListDetails, ListCheck, Checklist } from 'tabler-icons-react';
 import { checkStyles } from '../functions';
+import { Link, Routes, Route } from 'react-router-dom';
 
 const NewTodoList = (props) => {
   NewTodoList.propTypes = {
@@ -10,13 +11,9 @@ const NewTodoList = (props) => {
   };
 
   const [items, setItems] = useState(props.items);
-  const [task, setTask] = useState({
-    id: '',
-    title: '',
-    checked: false,
-  });
-  const [filter, setFilter] = useState('all');
+  const [task, setTask] = useState({});
   const [title, setTitle] = useState('');
+  const [filter, setFilter] = useState('all');
 
   console.log(items);
 
@@ -35,6 +32,7 @@ const NewTodoList = (props) => {
       setItems([...items, task]);
     }
     console.log(task);
+    console.log(title);
     e.preventDefault();
   }
 
@@ -75,6 +73,19 @@ const NewTodoList = (props) => {
     return setItems([...newItems]);
   };
 
+  const editTitle = (event) => {
+    setTitle(event.target.value);
+    setTask({ id: newId(), title: event.target.value, checked: false });
+    event.preventDefault();
+    console.log(title);
+  };
+
+  const enterTitle = (event) => {
+    addItem(event);
+    setTitle('');
+    setTask({});
+  };
+
   return (
     <Container>
       <Grid>
@@ -83,21 +94,11 @@ const NewTodoList = (props) => {
             <Input
               placeholder="Enter the task"
               value={title}
-              onChange={(event) => {
-                setTitle(event.target.value);
-                setTask({ id: newId(), title: title, checked: false });
-                event.preventDefault();
-              }}
+              onChange={(event) => editTitle(event)}
             ></Input>
           </Grid.Col>
           <Grid.Col span={2}>
-            <Input
-              component="button"
-              onClick={(event) => {
-                addItem(event);
-                setTitle('');
-              }}
-            ></Input>
+            <Input component="button" onClick={(event) => enterTitle(event)}></Input>
           </Grid.Col>
         </form>
       </Grid>
@@ -148,33 +149,44 @@ const NewTodoList = (props) => {
               ))}
           </List>
           <Group>
-            <Button
-              color="teal"
-              size="xs"
-              variant="outline"
-              onClick={() => setFilter('all')}
-              leftIcon={<Checklist size={16} strokeWidth={1.5} color={'teal'} />}
-            >
-              Все
-            </Button>
-            <Button
-              color="teal"
-              size="xs"
-              variant="outline"
-              onClick={() => setFilter('checked')}
-              leftIcon={<ListCheck size={16} strokeWidth={1.5} color={'teal'} />}
-            >
-              Выполненые
-            </Button>
-            <Button
-              color="teal"
-              size="xs"
-              variant="outline"
-              onClick={() => setFilter('unchecked')}
-              leftIcon={<ListDetails size={16} strokeWidth={1.5} color={'teal'} />}
-            >
-              Не выполненые
-            </Button>
+            <Link to="/newpage/all">
+              <Button
+                color="teal"
+                size="xs"
+                variant="outline"
+                onClick={() => setFilter('all')}
+                leftIcon={<Checklist size={16} strokeWidth={1.5} color={'teal'} />}
+              >
+                Все
+              </Button>
+            </Link>
+            <Link to="/newpage/completed">
+              <Button
+                color="teal"
+                size="xs"
+                variant="outline"
+                onClick={() => setFilter('checked')}
+                leftIcon={<ListCheck size={16} strokeWidth={1.5} color={'teal'} />}
+              >
+                Выполненые
+              </Button>
+            </Link>
+            <Link to="/newpage/uncompleted">
+              <Button
+                color="teal"
+                size="xs"
+                variant="outline"
+                onClick={() => setFilter('unchecked')}
+                leftIcon={<ListDetails size={16} strokeWidth={1.5} color={'teal'} />}
+              >
+                Не выполненые
+              </Button>
+            </Link>
+            <Routes>
+              <Route path="/newpage/all" />
+              <Route path="/newpage/completed" />
+              <Route path="/newpage/uncompleted" />
+            </Routes>
             <Button
               color="teal"
               size="xs"
