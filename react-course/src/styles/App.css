@@ -181,6 +181,18 @@ h1 {
   background-color: darkslategray;
 }
 
+.todo-item span {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
 .todo-item {
   margin-bottom: 5px;
+}
+
+.todo-form {
+  width: 600px;
+  display: flex;
+  justify-content: space-between;
 }
