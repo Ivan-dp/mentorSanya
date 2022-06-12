@@ -83,6 +83,7 @@ const NewTodoList = (props) => {
   const enterTitle = (event) => {
     addItem(event);
     setTitle('');
+    setTask({});
   };
 
   return (
