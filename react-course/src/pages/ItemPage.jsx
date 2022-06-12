@@ -8,10 +8,8 @@ const ItemPage = (props) => {
   return (
     <div className="item-page">
       <h4>
-        {props.item.id}. {props.item.title}
-        {JSON.stringify(props.item)}
+        {props.item.id}. {props.item.title} is {JSON.stringify(props.item.checked)}
       </h4>
-      <h3>{props.item.checked}</h3>
     </div>
   );
 };

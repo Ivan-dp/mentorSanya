@@ -16,7 +16,7 @@ function App() {
             <Link to="/posts">Posts</Link>
             <Link to="/requestinput">issue 34</Link>
             <Link to="/todo">Todo List</Link>
-            <Link to="/items/*">NewPage</Link>
+            <Link to="/items">NewPage</Link>
           </nav>
         </header>
         <Routes>

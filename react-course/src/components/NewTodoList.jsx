@@ -155,10 +155,7 @@ const NewTodoList = (props) => {
                         </Button>
                       </Link>
                       <Routes>
-                        <Route
-                          path={'/items/' + item.id}
-                          element={<ItemPage item={item} />}
-                        ></Route>
+                        <Route path={'/' + item.id} element={<ItemPage item={item} />}></Route>
                       </Routes>
                     </Group>
                   </List.Item>
