@@ -10,34 +10,13 @@ function App() {
       <div className="App">
         <header>
           <nav>
-            <Link to="/home" component={<Home />}>
-              Home
-            </Link>
-            <Link to="/info" component={<Info />}>
-              Info
-            </Link>
-            <Link to="/togglesquare" component={<ToggleSquare />}>
-              Issue-25
-            </Link>
-            <Link
-              to="/posts"
-              component={
-                <Posts>
-                  <PostList />
-                </Posts>
-              }
-            >
-              Posts
-            </Link>
-            <Link to="/requestinput" component={<RequestInput />}>
-              issue 34
-            </Link>
-            <Link to="/todo" component={<ToDo />}>
-              Todo List
-            </Link>
-            <Link to="/newpage/*" component={<NewPage />}>
-              NewPage
-            </Link>
+            <Link to="/home">Home</Link>
+            <Link to="/info">Info</Link>
+            <Link to="/togglesquare">Issue-25</Link>
+            <Link to="/posts">Posts</Link>
+            <Link to="/requestinput">issue 34</Link>
+            <Link to="/todo">Todo List</Link>
+            <Link to="/items/*">NewPage</Link>
           </nav>
         </header>
         <Routes>
@@ -55,7 +34,7 @@ function App() {
           <Route path="*" element={<NotFound />} />
           <Route path="requestinput" element={<RequestInput />} />
           <Route path="/todo" element={<ToDo />} />
-          <Route path="/newpage/*" element={<NewPage />} />
+          <Route path="/items/*" element={<NewPage />} />
         </Routes>
       </div>
     </>

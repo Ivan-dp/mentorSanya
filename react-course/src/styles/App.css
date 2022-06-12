@@ -196,3 +196,10 @@ h1 {
   display: flex;
   justify-content: space-between;
 }
+
+.item-page {
+  border: 2px solid, red;
+  background-color: red;
+  width: 800px;
+  height: 800px;
+}
