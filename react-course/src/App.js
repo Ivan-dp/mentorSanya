@@ -10,7 +10,7 @@ function App() {
       <div className="App">
         <header>
           <nav>
-            <Link to="/home">Home</Link>
+            <Link to="/">Home</Link>
             <Link to="/info">Info</Link>
             <Link to="/togglesquare">Issue-25</Link>
             <Link to="/posts">Posts</Link>
@@ -20,7 +20,7 @@ function App() {
           </nav>
         </header>
         <Routes>
-          <Route path="/home" element={<Home />} />
+          <Route path="/" element={<Home />} />
           <Route path="/info" element={<Info />} />
           <Route path="/togglesquare" element={<ToggleSquare />} />
           <Route

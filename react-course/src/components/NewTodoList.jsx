@@ -3,7 +3,7 @@ import { PropTypes } from 'prop-types';
 import { React, useState } from 'react';
 import { X, ClearAll, ListDetails, ListCheck, Checklist } from 'tabler-icons-react';
 import { checkStyles } from '../functions';
-import { Link, Routes, Route } from 'react-router-dom';
+import { Link, Routes, Route, Outlet } from 'react-router-dom';
 import { ItemPage } from '../pages/';
 
 const NewTodoList = (props) => {
@@ -89,6 +89,7 @@ const NewTodoList = (props) => {
 
   return (
     <>
+      <Outlet />
       <Container>
         <Grid>
           <form className="todo-form">
@@ -149,13 +150,13 @@ const NewTodoList = (props) => {
                       >
                         <X size={14} strokeWidth={1} color={'#700032'} />
                       </Button>
-                      <Link to={'/items/' + item.id} component={<ItemPage item={item} />}>
+                      <Link to={`/items/${item.id}`} component={<ItemPage item={item} />}>
                         <Button color="teal" size="xs" compact radius="xl" variant="outline">
                           Подробнее
                         </Button>
                       </Link>
                       <Routes>
-                        <Route path={'/' + item.id} element={<ItemPage item={item} />}></Route>
+                        <Route path={'/' + item.id} element={<ItemPage item={item} />} />
                       </Routes>
                     </Group>
                   </List.Item>
