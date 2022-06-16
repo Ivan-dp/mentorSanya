@@ -1,4 +1,4 @@
-import { React } from 'react';
+import React from 'react';
 import { Link, Route, Routes } from 'react-router-dom';
 import { PostList } from './components';
 import { Home, Info, NotFound, Posts, RequestInput, ToDo, ToggleSquare, NewPage } from './pages';
@@ -38,6 +38,9 @@ function App() {
             <Link to="/newpage/*" component={<NewPage />}>
               NewPage
             </Link>
+            <Link to="/newpage/0" component={<NewPage />}>
+              Issue 59
+            </Link>
           </nav>
         </header>
         <Routes>
@@ -56,6 +59,7 @@ function App() {
           <Route path="requestinput" element={<RequestInput />} />
           <Route path="/todo" element={<ToDo />} />
           <Route path="/newpage/*" element={<NewPage />} />
+          <Route path="/newpage/0" element={<NewPage />} />
         </Routes>
       </div>
     </>
