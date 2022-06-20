@@ -1,10 +1,22 @@
 import React from 'react';
 import { Link, Route, Routes } from 'react-router-dom';
 import { PostList } from './components';
-import { Home, Info, NotFound, Posts, RequestInput, ToDo, ToggleSquare, NewPage } from './pages';
+import {
+  Home,
+  Info,
+  NotFound,
+  Posts,
+  RequestInput,
+  ToDo,
+  ToggleSquare,
+  NewPage,
+  ItemPage,
+} from './pages';
+import { todoItems } from './consts';
 import './styles/index';
 
 function App() {
+  let id = '0';
   return (
     <>
       <div className="App">
@@ -35,12 +47,10 @@ function App() {
             <Link to="/todo" component={<ToDo />}>
               Todo List
             </Link>
-            <Link to="/newpage/*" component={<NewPage />}>
+            <Link to="/newpage" component={<NewPage />}>
               NewPage
             </Link>
-            <Link to="/newpage/0" component={<NewPage />}>
-              Issue 59
-            </Link>
+            <Link to={'/newpage/' + id}>Issue 59</Link>
           </nav>
         </header>
         <Routes>
@@ -58,8 +68,8 @@ function App() {
           <Route path="*" element={<NotFound />} />
           <Route path="requestinput" element={<RequestInput />} />
           <Route path="/todo" element={<ToDo />} />
-          <Route path="/newpage/*" element={<NewPage />} />
-          <Route path="/newpage/0" element={<NewPage />} />
+          <Route path="/newpage" element={<NewPage />} />
+          <Route path={'/newpage/' + id} element={<ItemPage item={todoItems[id]} />} />
         </Routes>
       </div>
     </>

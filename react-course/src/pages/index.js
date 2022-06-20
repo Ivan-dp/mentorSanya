@@ -7,6 +7,7 @@ import { RequestInput } from './RequestInput.jsx';
 import { ToDo } from './ToDo.jsx';
 import { NewPage } from './NewPage.jsx';
 import { Issue59 } from './Issue59.jsx';
+import { ItemPage } from './ItemPage.jsx';
 
 export { Home };
 export { Info };
@@ -17,3 +18,4 @@ export { RequestInput };
 export { ToDo };
 export { NewPage };
 export { Issue59 };
+export { ItemPage };
