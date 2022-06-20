@@ -68,7 +68,7 @@ function App() {
           <Route path="*" element={<NotFound />} />
           <Route path="requestinput" element={<RequestInput />} />
           <Route path="/todo" element={<ToDo />} />
-          <Route path="/newpage" element={<NewPage />} />
+          <Route path="/newpage/*" element={<NewPage />} />
           <Route path={'/newpage/' + id} element={<ItemPage item={todoItems[id]} />} />
         </Routes>
       </div>
