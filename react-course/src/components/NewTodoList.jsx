@@ -149,7 +149,7 @@ const NewTodoList = (props) => {
               ))}
           </List>
           <Group>
-            <Link to="/newpage/all">
+            <Link to="/mentorSanya/newpage/all">
               <Button
                 color="teal"
                 size="xs"
@@ -160,7 +160,7 @@ const NewTodoList = (props) => {
                 Все
               </Button>
             </Link>
-            <Link to="/newpage/completed">
+            <Link to="/mentorSanya/newpage/completed">
               <Button
                 color="teal"
                 size="xs"
@@ -171,7 +171,7 @@ const NewTodoList = (props) => {
                 Выполненые
               </Button>
             </Link>
-            <Link to="/newpage/uncompleted">
+            <Link to="/mentorSanya/newpage/uncompleted">
               <Button
                 color="teal"
                 size="xs"
@@ -183,9 +183,9 @@ const NewTodoList = (props) => {
               </Button>
             </Link>
             <Routes>
-              <Route path="/newpage/all" />
-              <Route path="/newpage/completed" />
-              <Route path="/newpage/uncompleted" />
+              <Route path="/mentorSanya/newpage/all" />
+              <Route path="/mentorSanya/newpage/completed" />
+              <Route path="/mentorSanya/newpage/uncompleted" />
             </Routes>
             <Button
               color="teal"

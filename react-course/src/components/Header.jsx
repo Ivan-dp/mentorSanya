@@ -4,21 +4,20 @@ import { Home, Info, ToggleSquare, Posts, RequestInput, ToDo, NewPage } from '..
 import { PostList } from './';
 
 const Header = () => {
-  const id = 0;
   return (
     <header>
       <nav>
-        <Link to="/" component={<Home />}>
+        <Link to="/mentorSanya/" component={<Home />}>
           Home
         </Link>
-        <Link to="/info" component={<Info />}>
+        <Link to="/mentorSanya/info" component={<Info />}>
           Info
         </Link>
-        <Link to="/togglesquare" component={<ToggleSquare />}>
+        <Link to="/mentorSanya/togglesquare" component={<ToggleSquare />}>
           Issue-25
         </Link>
         <Link
-          to="/posts"
+          to="/mentorSanya/posts"
           component={
             <Posts>
               <PostList />
@@ -27,16 +26,16 @@ const Header = () => {
         >
           Posts
         </Link>
-        <Link to="/requestinput" component={<RequestInput />}>
+        <Link to="/mentorSanya/requestinput" component={<RequestInput />}>
           issue 34
         </Link>
-        <Link to="/todo" component={<ToDo />}>
+        <Link to="/mentorSanya/todo" component={<ToDo />}>
           Todo List
         </Link>
-        <Link to="/newpage" component={<NewPage />}>
+        <Link to="/mentorSanya/newpage" component={<NewPage />}>
           NewPage
         </Link>
-        <Link to={'/newpage/' + id}>Issue 59</Link>
+        <Link to={'/mentorSanya/newpage/:id'}>Issue 59</Link>
       </nav>
     </header>
   );

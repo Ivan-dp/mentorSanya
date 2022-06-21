@@ -12,28 +12,26 @@ import {
   ItemPage,
 } from '../pages';
 import { PostList } from './';
-import { todoItems } from '../consts';
 
 const MyRoutes = () => {
-  const id = 0;
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/info" element={<Info />} />
-      <Route path="/togglesquare" element={<ToggleSquare />} />
+      <Route path="/mentorSanya/" element={<Home />} />
+      <Route path="/mentorSanya/info" element={<Info />} />
+      <Route path="/mentorSanya/togglesquare" element={<ToggleSquare />} />
       <Route
-        path="/posts"
+        path="/mentorSanya/posts"
         element={
           <Posts>
             <PostList />
           </Posts>
         }
       />
-      <Route path="*" element={<NotFound />} />
-      <Route path="requestinput" element={<RequestInput />} />
-      <Route path="/todo" element={<ToDo />} />
-      <Route path="/newpage/*" element={<NewPage />} />
-      <Route path={'/newpage/' + id} element={<ItemPage item={todoItems[id]} />} />
+      <Route path="/mentorSanya/*" element={<NotFound />} />
+      <Route path="/mentorSanya/requestinput" element={<RequestInput />} />
+      <Route path="/mentorSanya/todo" element={<ToDo />} />
+      <Route path="/mentorSanya/newpage/*" element={<NewPage />} />
+      <Route path={'/mentorSanya/newpage/:id'} element={<ItemPage />} />
     </Routes>
   );
 };
