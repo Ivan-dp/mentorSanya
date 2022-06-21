@@ -8,11 +8,13 @@ const ItemPage = (props) => {
   };
 
   // eslint-disable-next-line no-unused-vars
-  const id = useParams();
+  const { id } = useParams();
+  // console.log(id);
+  const item = props.item;
   return (
     <div className="item-page">
       <h4>
-        {props.item.id}. {props.item.title} is {JSON.stringify(props.item.checked)}
+        {item.id}. {item.title} is {JSON.stringify(item.checked)}
       </h4>
     </div>
   );

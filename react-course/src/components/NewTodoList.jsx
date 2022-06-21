@@ -132,6 +132,11 @@ const NewTodoList = (props) => {
                     label={item.id + '. ' + item.title}
                     onChange={() => handleComplete(item.id)}
                   />
+                  <Link to={'/mentorSanya/newpage/all/' + item.id}>
+                    <Button color="teal" radius="xl" size="xs" compact variant="outline">
+                      Подробнее
+                    </Button>
+                  </Link>
                   <Button
                     color="teal"
                     radius="xl"
