@@ -4,7 +4,6 @@ import { React, useState } from 'react';
 import { X, ClearAll, ListCheck, Checklist } from 'tabler-icons-react';
 import { checkStyles } from '../functions';
 import { Link, Routes, Route } from 'react-router-dom';
-// import { ItemPage } from '../pages';
 
 const NewTodoList = (props) => {
   NewTodoList.propTypes = {
