@@ -1,20 +1,21 @@
 import React from 'react';
-import { PropTypes } from 'prop-types';
-// import { useParams } from 'react-router-dom';
+// import { PropTypes } from 'prop-types';
+import { useParams } from 'react-router-dom';
+import { todoItems } from '../consts';
 
-const ItemPage = (props) => {
-  ItemPage.propTypes = {
-    item: PropTypes.object.isRequired,
-  };
+const ItemPage = () => {
+  // ItemPage.propTypes = {
+  //   item: PropTypes.object.isRequired,
+  // };
 
   // eslint-disable-next-line no-unused-vars
-  // const { id } = useParams();
-  // console.log(id);
-  const item = props.item;
+  const { id } = useParams();
+  console.log(id);
+  const items = todoItems;
   return (
     <div className="item-page">
       <h4>
-        {item.id}. {item.title} is {JSON.stringify(item.checked)}
+        {items[id].id}. {items[id].title} is {JSON.stringify(items[id].checked)}
       </h4>
     </div>
   );

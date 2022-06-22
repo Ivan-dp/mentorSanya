@@ -35,7 +35,7 @@ const Header = () => {
         <Link to="/mentorSanya/newpage" component={<NewPage />}>
           NewPage
         </Link>
-        <Link to={'/mentorSanya/newpage/all/:id'}>Issue 59</Link>
+        <Link to={'/mentorSanya/newpage/all/0'}>index 0</Link>
       </nav>
     </header>
   );
