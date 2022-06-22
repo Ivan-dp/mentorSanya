@@ -4,6 +4,7 @@ import { React, useState } from 'react';
 import { X, ClearAll, ListDetails, ListCheck, Checklist } from 'tabler-icons-react';
 import { checkStyles } from '../functions';
 import { Link, Routes, Route } from 'react-router-dom';
+// import { ItemPage } from '../pages';
 
 const NewTodoList = (props) => {
   NewTodoList.propTypes = {
@@ -127,11 +128,21 @@ const NewTodoList = (props) => {
                     }}
                     styles={checkStyles(item.checked)}
                     color="teal"
-                    // defaultChecked={item.checked}
                     checked={item.checked}
                     label={item.id + '. ' + item.title}
                     onChange={() => handleComplete(item.id)}
                   />
+                  <Link to={'/mentorSanya/newpage/all/' + item.id}>
+                    <Button color="teal" radius="xl" size="xs" compact variant="outline">
+                      Подробнее
+                    </Button>
+                  </Link>
+                  {/* <Routes>
+                    <Route
+                      path="mentorSanya/newpage/all/:id"
+                      element={<ItemPage item={item} />}
+                    ></Route>
+                  </Routes> */}
                   <Button
                     color="teal"
                     radius="xl"
@@ -149,7 +160,7 @@ const NewTodoList = (props) => {
               ))}
           </List>
           <Group>
-            <Link to="/newpage/all">
+            <Link to="/mentorSanya/newpage/all">
               <Button
                 color="teal"
                 size="xs"
@@ -160,7 +171,7 @@ const NewTodoList = (props) => {
                 Все
               </Button>
             </Link>
-            <Link to="/newpage/completed">
+            <Link to="/mentorSanya/newpage/completed">
               <Button
                 color="teal"
                 size="xs"
@@ -171,7 +182,7 @@ const NewTodoList = (props) => {
                 Выполненые
               </Button>
             </Link>
-            <Link to="/newpage/uncompleted">
+            <Link to="/mentorSanya/newpage/uncompleted">
               <Button
                 color="teal"
                 size="xs"
@@ -183,9 +194,9 @@ const NewTodoList = (props) => {
               </Button>
             </Link>
             <Routes>
-              <Route path="/newpage/all" />
-              <Route path="/newpage/completed" />
-              <Route path="/newpage/uncompleted" />
+              <Route path="/mentorSanya/newpage/all" />
+              <Route path="/mentorSanya/newpage/completed" />
+              <Route path="/mentorSanya/newpage/uncompleted" />
             </Routes>
             <Button
               color="teal"
