@@ -1,6 +1,6 @@
 import React from 'react';
 import { PropTypes } from 'prop-types';
-import { useParams } from 'react-router-dom';
+// import { useParams } from 'react-router-dom';
 
 const ItemPage = (props) => {
   ItemPage.propTypes = {
@@ -8,7 +8,7 @@ const ItemPage = (props) => {
   };
 
   // eslint-disable-next-line no-unused-vars
-  const { id } = useParams();
+  // const { id } = useParams();
   // console.log(id);
   const item = props.item;
   return (
