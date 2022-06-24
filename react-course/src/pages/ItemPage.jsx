@@ -13,9 +13,11 @@ const ItemPage = () => {
   } else {
     return (
       <div className="item-page">
-        <h4>
-          {items[id].id}. {items[id].title} is {JSON.stringify(items[id].checked)}
-        </h4>
+        <div className="item-data">
+          <h1>{items[id].id}</h1>
+          <h3>{items[id].title}</h3>
+          <h3 className="item-bool">{JSON.stringify(items[id].checked)}</h3>
+        </div>
         <form className="todo-form" style={{ width: 250 }}>
           <Input
             style={{ width: 200 }}
@@ -34,7 +36,7 @@ const ItemPage = () => {
             }}
           ></Input>
         </form>
-        <Link to="/mentorSanya/newpage/all">
+        <Link className="item-back-link" to="/mentorSanya/newpage/all">
           <Button color="teal" variant="outline">
             Go Back
           </Button>
