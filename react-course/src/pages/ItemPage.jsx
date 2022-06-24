@@ -1,11 +1,10 @@
-import React from 'react';
+import { React, useContext } from 'react';
 import { useParams } from 'react-router-dom';
-import { todoItems } from '../consts';
+import { itemsContext } from '../itemsContext';
 
 const ItemPage = () => {
   const { id } = useParams();
-  console.log(id);
-  const items = todoItems;
+  const { items } = useContext(itemsContext);
 
   if (id >= items.length) {
     return <h1>Некорректно введён номер</h1>;

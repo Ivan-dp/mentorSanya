@@ -1,16 +1,12 @@
 import { Checkbox, Container, Grid, Input, List, Group, Button } from '@mantine/core';
-import { PropTypes } from 'prop-types';
-import { React, useState } from 'react';
+import { React, useState, useContext } from 'react';
 import { X, ClearAll, ListCheck, Checklist } from 'tabler-icons-react';
 import { checkStyles } from '../functions';
 import { Link, Routes, Route } from 'react-router-dom';
+import { itemsContext } from '../itemsContext';
 
-const NewTodoList = (props) => {
-  NewTodoList.propTypes = {
-    items: PropTypes.array.isRequired,
-  };
-
-  const [items, setItems] = useState(props.items);
+const NewTodoList = () => {
+  const { items, setItems } = useContext(itemsContext);
   const [task, setTask] = useState({});
   const [title, setTitle] = useState('');
   const [filter, setFilter] = useState('all');
