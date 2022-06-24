@@ -8,10 +8,10 @@ import { itemsContext } from '../itemsContext';
 const NewTodoList = () => {
   const { items, setItems } = useContext(itemsContext);
   const [task, setTask] = useState({});
-  const [title, setTitle] = useState('');
+  const { title, setTitle } = useContext(itemsContext);
   const [filter, setFilter] = useState('all');
 
-  console.log(items);
+  console.log(items); 
 
   const handleComplete = (i) => {
     const newItems = [...items];

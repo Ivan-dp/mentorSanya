@@ -198,8 +198,32 @@ h1 {
 }
 
 .item-page {
-  border: 2px solid, red;
-  background-color: red;
-  width: 250px;
-  height: 20px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.item-data {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.item-data h1,
+h3 {
+  font-weight: normal;
+  text-transform: uppercase;
+  font-family: sans-serif;
+  font-size: 24;
+}
+
+.item-bool {
+  color: firebrick;
+}
+
+.item-back-link {
+  margin-top: 10px;
 }
