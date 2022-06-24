@@ -1,17 +1,12 @@
 import { Checkbox, Container, Grid, Input, List, Group, Button } from '@mantine/core';
-import { PropTypes } from 'prop-types';
-import { React, useState } from 'react';
-import { X, ClearAll, ListDetails, ListCheck, Checklist } from 'tabler-icons-react';
+import { React, useState, useContext } from 'react';
+import { X, ClearAll, ListCheck, Checklist } from 'tabler-icons-react';
 import { checkStyles } from '../functions';
 import { Link, Routes, Route } from 'react-router-dom';
-// import { ItemPage } from '../pages';
+import { itemsContext } from '../itemsContext';
 
-const NewTodoList = (props) => {
-  NewTodoList.propTypes = {
-    items: PropTypes.array.isRequired,
-  };
-
-  const [items, setItems] = useState(props.items);
+const NewTodoList = () => {
+  const { items, setItems } = useContext(itemsContext);
   const [task, setTask] = useState({});
   const [title, setTitle] = useState('');
   const [filter, setFilter] = useState('all');
@@ -132,30 +127,26 @@ const NewTodoList = (props) => {
                     label={item.id + '. ' + item.title}
                     onChange={() => handleComplete(item.id)}
                   />
-                  <Link to={'/mentorSanya/newpage/all/' + item.id}>
-                    <Button color="teal" radius="xl" size="xs" compact variant="outline">
-                      Подробнее
+                  <Group>
+                    <Link to={'/mentorSanya/newpage/all/' + item.id}>
+                      <Button color="teal" radius="xl" size="xs" compact variant="outline">
+                        Подробнее
+                      </Button>
+                    </Link>
+                    <Button
+                      color="teal"
+                      radius="xl"
+                      size="xs"
+                      compact
+                      variant="outline"
+                      onClick={() => {
+                        item.checked = null;
+                        clearTask();
+                      }}
+                    >
+                      <X size={14} strokeWidth={1} color={'#700032'} />
                     </Button>
-                  </Link>
-                  {/* <Routes>
-                    <Route
-                      path="mentorSanya/newpage/all/:id"
-                      element={<ItemPage item={item} />}
-                    ></Route>
-                  </Routes> */}
-                  <Button
-                    color="teal"
-                    radius="xl"
-                    size="xs"
-                    compact
-                    variant="outline"
-                    onClick={() => {
-                      item.checked = null;
-                      clearTask();
-                    }}
-                  >
-                    <X size={14} strokeWidth={1} color={'#700032'} />
-                  </Button>
+                  </Group>
                 </List.Item>
               ))}
           </List>
@@ -187,10 +178,10 @@ const NewTodoList = (props) => {
                 color="teal"
                 size="xs"
                 variant="outline"
-                onClick={() => setFilter('unchecked')}
-                leftIcon={<ListDetails size={16} strokeWidth={1.5} color={'teal'} />}
+                onClick={() => clearCompleted()}
+                leftIcon={<ClearAll size={16} strokeWidth={1.5} color={'teal'} />}
               >
-                Не выполненые
+                Очистить выполненые
               </Button>
             </Link>
             <Routes>
