@@ -1,6 +1,6 @@
 import { Checkbox, Container, Grid, Input, List, Group, Button } from '@mantine/core';
 import { React, useState, useContext } from 'react';
-import { X, ClearAll, ListCheck, Checklist } from 'tabler-icons-react';
+import { X, ClearAll, ListCheck, Checklist, Edit, ListDetails } from 'tabler-icons-react';
 import { checkStyles } from '../functions';
 import { Link, Routes, Route } from 'react-router-dom';
 import { itemsContext } from '../itemsContext';
@@ -11,7 +11,7 @@ const NewTodoList = () => {
   const { title, setTitle } = useContext(itemsContext);
   const [filter, setFilter] = useState('all');
 
-  console.log(items); 
+  console.log(items);
 
   const handleComplete = (i) => {
     const newItems = [...items];
@@ -130,7 +130,7 @@ const NewTodoList = () => {
                   <Group>
                     <Link to={'/mentorSanya/newpage/all/' + item.id}>
                       <Button color="teal" radius="xl" size="xs" compact variant="outline">
-                        Подробнее
+                        <Edit size={14} strokeWidth={1} color={'teal'} />
                       </Button>
                     </Link>
                     <Button
@@ -178,10 +178,10 @@ const NewTodoList = () => {
                 color="teal"
                 size="xs"
                 variant="outline"
-                onClick={() => clearCompleted()}
-                leftIcon={<ClearAll size={16} strokeWidth={1.5} color={'teal'} />}
+                onClick={() => setFilter('unchecked')}
+                leftIcon={<ListDetails size={16} strokeWidth={1.5} color={'teal'} />}
               >
-                Очистить выполненые
+                Не выполненые
               </Button>
             </Link>
             <Routes>
