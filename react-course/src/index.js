@@ -7,10 +7,11 @@ import { todoItems } from './consts';
 
 function Main() {
   const [items, setItems] = useState(todoItems);
+  const [title, setTitle] = useState('');
   return (
     // <React.StrictMode>
     <BrowserRouter>
-      <itemsContext.Provider value={{ items, setItems }}>
+      <itemsContext.Provider value={{ items, setItems, title, setTitle }}>
         <App />
       </itemsContext.Provider>
     </BrowserRouter>
