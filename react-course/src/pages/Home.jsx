@@ -1,7 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { PostList } from '../components';
-import { Info, NotFound, ToggleSquare, Posts, RequestInput } from './';
 
 const Home = () => {
   return (
@@ -10,36 +8,31 @@ const Home = () => {
       <h2>My links:</h2>
       <ul>
         <li>
-          <Link to="/info" component={<Info />}>
-            Info
-          </Link>
+          <Link to="/mentorSanya/">Home</Link>
         </li>
         <li>
-          <Link to="/notfound" component={<NotFound />}>
-            Not found
-          </Link>
+          <Link to="/mentorSanya/info">Info</Link>
         </li>
         <li>
-          <Link to="/togglesquare" component={<ToggleSquare />}>
-            Issue 25
-          </Link>
+          <Link to="/mentorSanya/notfound">Not found</Link>
         </li>
         <li>
-          <Link
-            to="/posts"
-            component={
-              <Posts>
-                <PostList />
-              </Posts>
-            }
-          >
-            Posts
-          </Link>
+          <Link to="/mentorSanya/togglesquare"></Link>
         </li>
         <li>
-          <Link to="/requestinput" component={<RequestInput />}>
-            Issue 34
-          </Link>
+          <Link to="/mentorSanya/posts">Posts</Link>
+        </li>
+        <li>
+          <Link to="/mentorSanya/requestinput">Issue 34</Link>
+        </li>
+        <li>
+          <Link to="/mentorSanya/todo">Todo list</Link>
+        </li>
+        <li>
+          <Link to="/mentorSanya/newpage">New page</Link>
+        </li>
+        <li>
+          <Link to="/mentorSanya/newpage/all/0">Index 0</Link>
         </li>
       </ul>
     </div>
