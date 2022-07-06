@@ -4,25 +4,26 @@ import App from './App';
 import { BrowserRouter } from 'react-router-dom';
 import { itemsContext } from './itemsContext';
 import { todoItems } from './consts';
-import { createStore } from 'redux';
-import { composeWithDevTools } from 'redux-devtools-extension';
+// import { createStore } from 'redux';
+// import { composeWithDevTools } from 'redux-devtools-extension';
 import { Provider } from 'react-redux';
+import { store } from './store/store.js';
 
 function Main() {
   const [items, setItems] = useState(todoItems);
   const [title, setTitle] = useState('');
 
-  const defaultTitle = { 
-    title: '',
-  };
+  // const defaultTitle = {
+  //   title: title,
+  // };
 
-  const reducer = (state = defaultItem, action) => {
-    switch(action.type) {
-      case 
-    }
-  };
+  // const reducer = (state = defaultTitle, action) => {
+  //   // switch(action.type) {
+  //   //   case
+  //   // }
+  // };
 
-  const store = createStore(reducer, composeWithDevTools());
+  // const store = createStore(reducer, composeWithDevTools());
 
   return (
     // <React.StrictMode>
