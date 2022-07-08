@@ -1,7 +1,7 @@
 import { Checkbox, Container, Grid, Input, List, Group, Button } from '@mantine/core';
 import { React, useState, useContext } from 'react';
 import { X, ClearAll, ListCheck, Checklist, Edit, ListDetails } from 'tabler-icons-react';
-import { checkStyles } from '../functions';
+import { checkStyles, newId } from '../functions';
 import { Link, Routes, Route } from 'react-router-dom';
 import { itemsContext } from '../itemsContext';
 
@@ -43,17 +43,6 @@ const NewTodoList = () => {
       newItems[i].id = i;
     }
     return setItems([...newItems]);
-  };
-
-  const newId = (arr) => {
-    let ident;
-    if (arr.length != 0) {
-      ident = arr[arr.length - 1].id + 1;
-    } else {
-      ident = 0;
-    }
-    console.log(ident);
-    return ident;
   };
 
   const clearTask = () => {
