@@ -45,10 +45,10 @@ const NewTodoList = () => {
     return setItems([...newItems]);
   };
 
-  const newId = () => {
+  const newId = (arr) => {
     let ident;
-    if (items.length != 0) {
-      ident = items[items.length - 1].id + 1;
+    if (arr.length != 0) {
+      ident = arr[arr.length - 1].id + 1;
     } else {
       ident = 0;
     }
@@ -71,7 +71,7 @@ const NewTodoList = () => {
 
   const editTitle = (event) => {
     setTitle(event.target.value);
-    setTask({ id: newId(), title: event.target.value, checked: false });
+    setTask({ id: newId(items), title: event.target.value, checked: false });
     event.preventDefault();
     console.log(title);
   };
