@@ -7,7 +7,6 @@ import { todoItems } from './consts';
 import { createStore } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { Provider } from 'react-redux';
-import { store } from './store/store.js';
 
 function Main() {
   const [items, setItems] = useState(todoItems);
@@ -19,16 +18,16 @@ function Main() {
 
   let lastId = defaultItems.value.length - 1;
 
-  const addTask = (task) => ({
-    type: 'ADD_TASK',
-    payload: { id },
-  });
+  // const addTask = (task) => ({
+  //   type: 'ADD_TASK',
+  //   payload: { id },
+  // });
 
   const reducer = (state = defaultItems, action) => {
     switch (action.type) {
       case 'ADD_TASK':
         return [
-          ...state,
+          ...state.value,
           {
             id: ++lastId,
             title: action.payload.title,

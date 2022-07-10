@@ -4,6 +4,7 @@ import { X, ClearAll, ListCheck, Checklist, Edit, ListDetails } from 'tabler-ico
 import { checkStyles, newId } from '../functions';
 import { Link, Routes, Route } from 'react-router-dom';
 import { itemsContext } from '../itemsContext';
+import { useSelector, useDispatch } from 'react-redux';
 
 const NewTodoList = () => {
   const { items, setItems } = useContext(itemsContext);
@@ -11,7 +12,11 @@ const NewTodoList = () => {
   const { title, setTitle } = useContext(itemsContext);
   const [filter, setFilter] = useState('all');
 
+  const list = useSelector((store) => store.value);
+  const dispatch = useDispatch();
+
   console.log(items);
+  console.log(list);
 
   const handleComplete = (i) => {
     const newItems = [...items];
@@ -23,13 +28,20 @@ const NewTodoList = () => {
     return setItems(newItems);
   };
 
+  // function addItem(e) {
+  //   if (task.title.length > 0) {
+  //     setItems([...items, task]);
+  //   }
+  //   console.log(task);
+  //   console.log(title);
+  //   e.preventDefault();
+  // }
+
   function addItem(e) {
-    if (task.title.length > 0) {
-      setItems([...items, task]);
-    }
     console.log(task);
     console.log(title);
     e.preventDefault();
+    dispatch({ type: 'ADD_TASK' });
   }
 
   const clearCompleted = () => {
@@ -65,6 +77,7 @@ const NewTodoList = () => {
     console.log(title);
   };
 
+  // eslint-disable-next-line no-unused-vars
   const enterTitle = (event) => {
     addItem(event);
     setTitle('');
@@ -84,6 +97,7 @@ const NewTodoList = () => {
           </Grid.Col>
           <Grid.Col span={2}>
             <Input component="button" onClick={(event) => enterTitle(event)}></Input>
+            {/* <Input component="button" onClick={() => dispatch('ADD_TASK')}></Input> */}
           </Grid.Col>
         </form>
       </Grid>
