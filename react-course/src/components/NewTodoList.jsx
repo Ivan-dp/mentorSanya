@@ -12,7 +12,7 @@ const NewTodoList = () => {
   const { title, setTitle } = useContext(itemsContext);
   const [filter, setFilter] = useState('all');
 
-  const list = useSelector((store) => store.value);
+  const list = useSelector((store) => store);
   const dispatch = useDispatch();
 
   console.log(items);
@@ -41,7 +41,7 @@ const NewTodoList = () => {
     console.log(task);
     console.log(title);
     e.preventDefault();
-    dispatch({ type: 'ADD_TASK' });
+    dispatch({ type: 'ADD_TASK', payload: title });
   }
 
   const clearCompleted = () => {

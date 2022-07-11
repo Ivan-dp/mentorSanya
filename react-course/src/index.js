@@ -12,22 +12,22 @@ function Main() {
   const [items, setItems] = useState(todoItems);
   const [title, setTitle] = useState('');
 
-  const defaultItems = {
-    value: items,
-  };
+  // const defaultItems = {
+  //   value: items,
+  // };
 
-  let lastId = defaultItems.value.length - 1;
+  let lastId = todoItems.length - 1;
 
   // const addTask = (task) => ({
   //   type: 'ADD_TASK',
   //   payload: { id },
   // });
 
-  const reducer = (state = defaultItems, action) => {
+  const reducer = (state = todoItems, action) => {
     switch (action.type) {
       case 'ADD_TASK':
         return [
-          ...state.value,
+          ...state,
           {
             id: ++lastId,
             title: action.payload.title,
