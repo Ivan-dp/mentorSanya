@@ -104,7 +104,7 @@ const NewTodoList = () => {
       <Grid>
         <Grid.Col>
           <List center listStyleType="none" className="todo-list">
-            {items
+            {list
               .filter((item) => {
                 if (filter === 'checked') {
                   return item.checked;
