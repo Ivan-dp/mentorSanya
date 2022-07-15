@@ -1,11 +1,13 @@
+import { randomId } from '../functions';
+
 const todoItems = [
   {
-    id: 0,
+    id: randomId(),
     title: 'Съесть деда',
     checked: true,
   },
   {
-    id: 1,
+    id: randomId(),
     title: 'Съесть окрошку',
     checked: false,
   },

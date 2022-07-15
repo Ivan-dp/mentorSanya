@@ -9,31 +9,15 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import { Provider } from 'react-redux';
 
 function Main() {
-  const [items, setItems] = useState(todoItems);
+  // const [items, setItems] = useState(todoItems);
   const [title, setTitle] = useState('');
 
-  // const defaultItems = {
-  //   value: items,
-  // };
-
-  let lastId = todoItems.length - 1;
-
-  // const addTask = (task) => ({
-  //   type: 'ADD_TASK',
-  //   payload: { id },
-  // });
+  // let lastId = todoItems.length - 1;
 
   const reducer = (state = todoItems, action) => {
     switch (action.type) {
       case 'ADD_TASK':
-        return [
-          ...state,
-          {
-            id: ++lastId,
-            title: action.payload.title,
-            checked: false,
-          },
-        ];
+        return [...state, action.payload];
       default:
         return state;
     }
@@ -45,7 +29,7 @@ function Main() {
     // <React.StrictMode>
     <BrowserRouter>
       <Provider store={store}>
-        <itemsContext.Provider value={{ items, setItems, title, setTitle }}>
+        <itemsContext.Provider value={{ title, setTitle }}>
           <App />
         </itemsContext.Provider>
       </Provider>

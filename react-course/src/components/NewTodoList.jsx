@@ -1,31 +1,34 @@
 import { Checkbox, Container, Grid, Input, List, Group, Button } from '@mantine/core';
 import { React, useState, useContext } from 'react';
 import { X, ClearAll, ListCheck, Checklist, Edit, ListDetails } from 'tabler-icons-react';
-import { checkStyles, newId } from '../functions';
+import { checkStyles, randomId } from '../functions';
 import { Link, Routes, Route } from 'react-router-dom';
 import { itemsContext } from '../itemsContext';
 import { useSelector, useDispatch } from 'react-redux';
 
 const NewTodoList = () => {
-  const { items, setItems } = useContext(itemsContext);
+  // const { items, setItems } = useContext(itemsContext);
+  // eslint-disable-next-line no-unused-vars
   const [task, setTask] = useState({});
   const { title, setTitle } = useContext(itemsContext);
   const [filter, setFilter] = useState('all');
 
-  const list = useSelector((store) => store);
+  let list = useSelector((store) => store);
   const dispatch = useDispatch();
 
-  console.log(items);
+  // console.log('items:');
+  // console.log(items);
+  console.log('list:');
   console.log(list);
 
   const handleComplete = (i) => {
-    const newItems = [...items];
+    const newItems = [...list];
     if (newItems[i].checked === false) {
       newItems[i].checked = true;
     } else {
       newItems[i].checked = false;
     }
-    return setItems(newItems);
+    return (list = newItems);
   };
 
   // function addItem(e) {
@@ -38,50 +41,44 @@ const NewTodoList = () => {
   // }
 
   function addItem(e) {
-    console.log(task);
-    console.log(title);
+    // console.log(task);
+    // console.log(title);
     e.preventDefault();
-    dispatch({ type: 'ADD_TASK', payload: title });
+    dispatch({ type: 'ADD_TASK', payload: { task } });
   }
 
   const clearCompleted = () => {
     const newItems = [];
-    for (let i of items) {
+    for (let i of list) {
       if (i.checked === false) {
         newItems.push(i);
       }
     }
-    for (let i = 0; i < newItems.length; i += 1) {
-      newItems[i].id = i;
-    }
-    return setItems([...newItems]);
+    return (list = [...newItems]);
   };
 
   const clearTask = () => {
     const newItems = [];
-    for (let i of items) {
+    for (let i of list) {
       if (i.checked !== null) {
         newItems.push(i);
       }
     }
-    for (let i = 0; i < newItems.length; i += 1) {
-      newItems[i].id = i;
-    }
-    return setItems([...newItems]);
+    return (list = [...newItems]);
   };
 
   const editTitle = (event) => {
     setTitle(event.target.value);
-    setTask({ id: newId(items), title: event.target.value, checked: false });
+    setTask({ id: randomId(), title: event.target.value, checked: false });
     event.preventDefault();
-    console.log(title);
+    // console.log(title);
   };
 
   // eslint-disable-next-line no-unused-vars
   const enterTitle = (event) => {
     addItem(event);
-    setTitle('');
-    setTask({});
+    // setTitle('');
+    // setTask({});
   };
 
   return (
@@ -127,7 +124,7 @@ const NewTodoList = () => {
                     styles={checkStyles(item.checked)}
                     color="teal"
                     checked={item.checked}
-                    label={item.id + '. ' + item.title}
+                    label={item.title}
                     onChange={() => handleComplete(item.id)}
                   />
                   <Group>
