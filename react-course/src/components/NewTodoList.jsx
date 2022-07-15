@@ -44,7 +44,10 @@ const NewTodoList = () => {
     // console.log(task);
     // console.log(title);
     e.preventDefault();
-    dispatch({ type: 'ADD_TASK', payload: { task } });
+    dispatch({
+      type: 'ADD_TASK',
+      payload: { id: randomId(), title: title, checked: false },
+    });
   }
 
   const clearCompleted = () => {
@@ -69,7 +72,7 @@ const NewTodoList = () => {
 
   const editTitle = (event) => {
     setTitle(event.target.value);
-    setTask({ id: randomId(), title: event.target.value, checked: false });
+    // setTask({ id: randomId(), title: event.target.value, checked: false });
     event.preventDefault();
     // console.log(title);
   };
