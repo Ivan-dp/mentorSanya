@@ -7,17 +7,22 @@ import { todoItems } from './consts';
 import { createStore } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { Provider } from 'react-redux';
+import { randomId } from '@mantine/hooks';
 
 function Main() {
-  // const [items, setItems] = useState(todoItems);
   const [title, setTitle] = useState('');
-
-  // let lastId = todoItems.length - 1;
 
   const reducer = (state = todoItems, action) => {
     switch (action.type) {
       case 'ADD_TASK':
-        return [...state, action.payload];
+        return [
+          ...state,
+          {
+            id: randomId(),
+            title: action.payload,
+            checked: false,
+          },
+        ];
       default:
         return state;
     }

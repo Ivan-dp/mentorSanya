@@ -1,23 +1,18 @@
 import { Checkbox, Container, Grid, Input, List, Group, Button } from '@mantine/core';
 import { React, useState, useContext } from 'react';
 import { X, ClearAll, ListCheck, Checklist, Edit, ListDetails } from 'tabler-icons-react';
-import { checkStyles, randomId } from '../functions';
+import { checkStyles } from '../functions';
 import { Link, Routes, Route } from 'react-router-dom';
 import { itemsContext } from '../itemsContext';
 import { useSelector, useDispatch } from 'react-redux';
 
 const NewTodoList = () => {
-  // const { items, setItems } = useContext(itemsContext);
-  // eslint-disable-next-line no-unused-vars
-  const [task, setTask] = useState({});
   const { title, setTitle } = useContext(itemsContext);
   const [filter, setFilter] = useState('all');
 
   let list = useSelector((store) => store);
   const dispatch = useDispatch();
 
-  // console.log('items:');
-  // console.log(items);
   console.log('list:');
   console.log(list);
 
@@ -28,7 +23,7 @@ const NewTodoList = () => {
     } else {
       newItems[i].checked = false;
     }
-    return (list = newItems);
+    return (list = [...newItems]);
   };
 
   // function addItem(e) {
@@ -41,13 +36,13 @@ const NewTodoList = () => {
   // }
 
   function addItem(e) {
-    // console.log(task);
-    // console.log(title);
     e.preventDefault();
-    dispatch({
-      type: 'ADD_TASK',
-      payload: { id: randomId(), title: title, checked: false },
-    });
+    if (title) {
+      dispatch({
+        type: 'ADD_TASK',
+        payload: title,
+      });
+    }
   }
 
   const clearCompleted = () => {
@@ -72,12 +67,9 @@ const NewTodoList = () => {
 
   const editTitle = (event) => {
     setTitle(event.target.value);
-    // setTask({ id: randomId(), title: event.target.value, checked: false });
     event.preventDefault();
-    // console.log(title);
   };
 
-  // eslint-disable-next-line no-unused-vars
   const enterTitle = (event) => {
     addItem(event);
     // setTitle('');
@@ -96,8 +88,13 @@ const NewTodoList = () => {
             ></Input>
           </Grid.Col>
           <Grid.Col span={2}>
-            <Input component="button" onClick={(event) => enterTitle(event)}></Input>
-            {/* <Input component="button" onClick={() => dispatch('ADD_TASK')}></Input> */}
+            <Input
+              component="button"
+              onClick={(event) => {
+                enterTitle(event);
+                // setTitle('');
+              }}
+            ></Input>
           </Grid.Col>
         </form>
       </Grid>
