@@ -26,25 +26,6 @@ const NewTodoList = () => {
     return (list = [...newItems]);
   };
 
-  // function addItem(e) {
-  //   if (task.title.length > 0) {
-  //     setItems([...items, task]);
-  //   }
-  //   console.log(task);
-  //   console.log(title);
-  //   e.preventDefault();
-  // }
-
-  function addItem(e) {
-    e.preventDefault();
-    if (title) {
-      dispatch({
-        type: 'ADD_TASK',
-        payload: title,
-      });
-    }
-  }
-
   const clearCompleted = () => {
     const newItems = [];
     for (let i of list) {
@@ -65,15 +46,17 @@ const NewTodoList = () => {
     return (list = [...newItems]);
   };
 
-  const editTitle = (event) => {
-    setTitle(event.target.value);
-    event.preventDefault();
+  const addNewTitle = (e) => {
+    e.preventDefault();
+    setTitle(e.target.value);
   };
 
-  const enterTitle = (event) => {
-    addItem(event);
-    // setTitle('');
-    // setTask({});
+  const addNewTask = (e) => {
+    e.preventDefault();
+    dispatch({
+      type: 'ADD_TASK',
+      payload: title,
+    });
   };
 
   return (
@@ -84,14 +67,16 @@ const NewTodoList = () => {
             <Input
               placeholder="Enter the task"
               value={title}
-              onChange={(event) => editTitle(event)}
+              onChange={(event) => {
+                addNewTitle(event);
+              }}
             ></Input>
           </Grid.Col>
           <Grid.Col span={2}>
             <Input
               component="button"
               onClick={(event) => {
-                enterTitle(event);
+                addNewTask(event);
                 // setTitle('');
               }}
             ></Input>

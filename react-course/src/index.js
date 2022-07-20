@@ -13,6 +13,7 @@ function Main() {
   const [title, setTitle] = useState('');
 
   const reducer = (state = todoItems, action) => {
+    console.log(state);
     switch (action.type) {
       case 'ADD_TASK':
         return [
@@ -23,6 +24,13 @@ function Main() {
             checked: false,
           },
         ];
+      case 'TOGGLE_TASK':
+        return state.map((task) => {
+          if (task.id === action.payload.id) return { ...task, checked: !task.checked };
+          return task;
+        });
+      case 'DELETE_TASK':
+        return state.filter((task) => action.payload.id !== task.id);
       default:
         return state;
     }
