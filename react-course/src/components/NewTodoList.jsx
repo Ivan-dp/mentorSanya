@@ -1,13 +1,16 @@
 import { Checkbox, Container, Grid, Input, List, Group, Button } from '@mantine/core';
+// eslint-disable-next-line no-unused-vars
 import { React, useState, useContext } from 'react';
 import { X, ClearAll, ListCheck, Checklist, Edit, ListDetails } from 'tabler-icons-react';
 import { checkStyles } from '../functions';
 import { Link, Routes, Route } from 'react-router-dom';
+// eslint-disable-next-line no-unused-vars
 import { itemsContext } from '../itemsContext';
 import { useSelector, useDispatch } from 'react-redux';
 
 const NewTodoList = () => {
-  const { title, setTitle } = useContext(itemsContext);
+  // const { title, setTitle } = useContext(itemsContext);
+  const [title, setTitle] = useState('');
   const [filter, setFilter] = useState('all');
 
   let list = useSelector((store) => store);
@@ -53,10 +56,13 @@ const NewTodoList = () => {
 
   const addNewTask = (e) => {
     e.preventDefault();
-    dispatch({
-      type: 'ADD_TASK',
-      payload: title,
-    });
+    if (title) {
+      dispatch({
+        type: 'ADD_TASK',
+        payload: title,
+      });
+    }
+    setTitle('');
   };
 
   return (
@@ -77,7 +83,6 @@ const NewTodoList = () => {
               component="button"
               onClick={(event) => {
                 addNewTask(event);
-                // setTitle('');
               }}
             ></Input>
           </Grid.Col>
