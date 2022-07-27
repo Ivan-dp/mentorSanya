@@ -1,15 +1,11 @@
 import { Checkbox, Container, Grid, Input, List, Group, Button } from '@mantine/core';
-// eslint-disable-next-line no-unused-vars
-import { React, useState, useContext } from 'react';
+import { React, useState } from 'react';
 import { X, ClearAll, ListCheck, Checklist, Edit, ListDetails } from 'tabler-icons-react';
 import { checkStyles } from '../functions';
 import { Link, Routes, Route } from 'react-router-dom';
-// eslint-disable-next-line no-unused-vars
-import { itemsContext } from '../itemsContext';
 import { useSelector, useDispatch } from 'react-redux';
 
 const NewTodoList = () => {
-  // const { title, setTitle } = useContext(itemsContext);
   const [title, setTitle] = useState('');
   const [filter, setFilter] = useState('all');
 
@@ -19,16 +15,6 @@ const NewTodoList = () => {
   console.log('list:');
   console.log(list);
 
-  const handleComplete = (i) => {
-    const newItems = [...list];
-    if (newItems[i].checked === false) {
-      newItems[i].checked = true;
-    } else {
-      newItems[i].checked = false;
-    }
-    return (list = [...newItems]);
-  };
-
   const clearCompleted = () => {
     const newItems = [];
     for (let i of list) {
@@ -36,7 +22,8 @@ const NewTodoList = () => {
         newItems.push(i);
       }
     }
-    return (list = [...newItems]);
+    list = [...newItems];
+    return list;
   };
 
   const clearTask = () => {
@@ -46,7 +33,8 @@ const NewTodoList = () => {
         newItems.push(i);
       }
     }
-    return (list = [...newItems]);
+    list = [...newItems];
+    return list;
   };
 
   const addNewTitle = (e) => {
@@ -115,7 +103,12 @@ const NewTodoList = () => {
                     color="teal"
                     checked={item.checked}
                     label={item.title}
-                    onChange={() => handleComplete(item.id)}
+                    onChange={() =>
+                      dispatch({
+                        type: 'TOGGLE_TASK',
+                        payload: item.id,
+                      })
+                    }
                   />
                   <Group>
                     <Link to={'/mentorSanya/newpage/all/' + item.id}>

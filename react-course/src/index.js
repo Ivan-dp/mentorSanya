@@ -12,7 +12,7 @@ import { randomId } from '@mantine/hooks';
 function Main() {
   const [title, setTitle] = useState('');
 
-  const reducer = (state = todoItems, action) => {
+  const reducer = (action, state = todoItems) => {
     console.log(state);
     switch (action.type) {
       case 'ADD_TASK':
@@ -26,7 +26,7 @@ function Main() {
         ];
       case 'TOGGLE_TASK':
         return state.map((task) => {
-          if (task.id === action.payload.id) return { ...task, checked: !task.checked };
+          if (task.id === action.payload) return { ...task, checked: !task.checked };
           return task;
         });
       case 'DELETE_TASK':
