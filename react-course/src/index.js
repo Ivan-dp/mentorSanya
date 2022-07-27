@@ -12,7 +12,7 @@ import { randomId } from '@mantine/hooks';
 function Main() {
   const [title, setTitle] = useState('');
 
-  const reducer = (action, state = todoItems) => {
+  const reducer = (state = todoItems, action) => {
     console.log(state);
     switch (action.type) {
       case 'ADD_TASK':
