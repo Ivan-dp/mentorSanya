@@ -31,6 +31,8 @@ function Main() {
         });
       case 'DELETE_TASK':
         return state.filter((task) => action.payload !== task.id);
+      case 'FILTER_TASK':
+        return state.filter((task) => task.checked === false);
       default:
         return state;
     }
