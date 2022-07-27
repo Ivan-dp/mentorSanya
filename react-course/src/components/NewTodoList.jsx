@@ -26,17 +26,6 @@ const NewTodoList = () => {
     return list;
   };
 
-  const clearTask = () => {
-    const newItems = [];
-    for (let i of list) {
-      if (i.checked !== null) {
-        newItems.push(i);
-      }
-    }
-    list = [...newItems];
-    return list;
-  };
-
   const addNewTitle = (e) => {
     e.preventDefault();
     setTitle(e.target.value);
@@ -122,10 +111,12 @@ const NewTodoList = () => {
                       size="xs"
                       compact
                       variant="outline"
-                      onClick={() => {
-                        item.checked = null;
-                        clearTask();
-                      }}
+                      onClick={() =>
+                        dispatch({
+                          type: 'DELETE_TASK',
+                          payload: item.id,
+                        })
+                      }
                     >
                       <X size={14} strokeWidth={1} color={'#700032'} />
                     </Button>
