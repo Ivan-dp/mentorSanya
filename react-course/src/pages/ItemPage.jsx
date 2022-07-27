@@ -1,37 +1,59 @@
+// eslint-disable-next-line no-unused-vars
 import { React, useContext } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { itemsContext } from '../itemsContext';
+// import { itemsContext } from '../itemsContext';
 import { Input, Button } from '@mantine/core';
+// eslint-disable-next-line no-unused-vars
+import { useSelector, useDispatch } from 'react-redux';
 
 const ItemPage = () => {
-  const { id } = useParams();
-  const { items } = useContext(itemsContext);
-  const { title, setTitle } = useContext(itemsContext);
+  let list = useSelector((store) => store);
 
-  if (id >= items.length) {
+  const { id } = useParams();
+
+  // for (let task of list) {
+  //   if (task.id == id) {
+  //     console.log(task);
+  //   }
+  //   return task;
+  // }
+  console.log(id);
+  let element;
+  for (element of list) {
+    if (element.id === id) {
+      console.log(element);
+      // task = element;
+      // return task;
+    }
+    return element;
+  }
+  console.log(element);
+  // const [title, setTitle] = list[id].title;
+
+  if (id >= list.length) {
     return <h1>Некорректно введён номер</h1>;
   } else {
     return (
       <div className="item-page">
         <div className="item-data">
-          <h1>{items[id].id}</h1>
-          <h3>{items[id].title}</h3>
-          <h3 className="item-bool">{JSON.stringify(items[id].checked)}</h3>
+          <h1>{element.id}</h1>
+          <h3>{element.title}</h3>
+          <h3 className="item-bool">{JSON.stringify(element.checked)}</h3>
         </div>
         <form className="todo-form" style={{ width: 250 }}>
           <Input
             style={{ width: 200 }}
-            placeholder={items[id].title}
-            value={title}
+            placeholder={element.title}
+            value={element.title}
             onChange={(event) => {
-              setTitle((items[id].title = event.target.value));
+              element.title = event.target.value;
             }}
           ></Input>
           <Input
             style={{ width: 50 }}
             component="button"
             onClick={(event) => {
-              setTitle(event.target.value);
+              element.title = event.target.value;
               event.preventDefault();
             }}
           ></Input>

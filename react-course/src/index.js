@@ -1,8 +1,7 @@
-import { React, useState } from 'react';
+import { React } from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
-import { itemsContext } from './itemsContext';
 import { todoItems } from './consts';
 import { createStore } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
@@ -10,8 +9,6 @@ import { Provider } from 'react-redux';
 import { randomId } from '@mantine/hooks';
 
 function Main() {
-  const [title, setTitle] = useState('');
-
   const reducer = (state = todoItems, action) => {
     console.log(state);
     switch (action.type) {
@@ -44,9 +41,7 @@ function Main() {
     // <React.StrictMode>
     <BrowserRouter>
       <Provider store={store}>
-        <itemsContext.Provider value={{ title, setTitle }}>
-          <App />
-        </itemsContext.Provider>
+        <App />
       </Provider>
     </BrowserRouter>
     // </React.StrictMode>
