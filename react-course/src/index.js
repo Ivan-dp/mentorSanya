@@ -30,7 +30,7 @@ function Main() {
           return task;
         });
       case 'DELETE_TASK':
-        return state.filter((task) => action.payload.id !== task.id);
+        return state.filter((task) => action.payload !== task.id);
       default:
         return state;
     }
