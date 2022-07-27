@@ -15,17 +15,6 @@ const NewTodoList = () => {
   console.log('list:');
   console.log(list);
 
-  const clearCompleted = () => {
-    const newItems = [];
-    for (let i of list) {
-      if (i.checked === false) {
-        newItems.push(i);
-      }
-    }
-    list = [...newItems];
-    return list;
-  };
-
   const addNewTitle = (e) => {
     e.preventDefault();
     setTitle(e.target.value);
@@ -167,10 +156,10 @@ const NewTodoList = () => {
               color="teal"
               size="xs"
               variant="outline"
-              onClick={() => clearCompleted()}
+              onClick={() => dispatch({ type: 'FILTER_TASK' })}
               leftIcon={<ClearAll size={16} strokeWidth={1.5} color={'teal'} />}
             >
-              Очистить выполненые
+              Очистить выполненные
             </Button>
           </Group>
         </Grid.Col>
