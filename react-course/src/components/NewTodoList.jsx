@@ -1,85 +1,56 @@
 import { Checkbox, Container, Grid, Input, List, Group, Button } from '@mantine/core';
-import { React, useState, useContext } from 'react';
+import { React, useState } from 'react';
 import { X, ClearAll, ListCheck, Checklist, Edit, ListDetails } from 'tabler-icons-react';
 import { checkStyles } from '../functions';
 import { Link, Routes, Route } from 'react-router-dom';
-import { itemsContext } from '../itemsContext';
+import { useSelector, useDispatch } from 'react-redux';
 
 const NewTodoList = () => {
-  const { items, setItems } = useContext(itemsContext);
-  const [task, setTask] = useState({});
-  const { title, setTitle } = useContext(itemsContext);
+  const [title, setTitle] = useState('');
   const [filter, setFilter] = useState('all');
 
-  console.log(items);
+  let list = useSelector((store) => store);
+  const dispatch = useDispatch();
 
-  const handleComplete = (i) => {
-    const newItems = [...items];
-    if (newItems[i].checked === false) {
-      newItems[i].checked = true;
-    } else {
-      newItems[i].checked = false;
-    }
-    return setItems(newItems);
-  };
-
-  function addItem(e) {
-    if (task.title.length > 0) {
-      setItems([...items, task]);
-    }
-    console.log(task);
-    console.log(title);
-    e.preventDefault();
-  }
+  console.log('list:');
+  console.log(list);
 
   const clearCompleted = () => {
     const newItems = [];
-    for (let i of items) {
+    for (let i of list) {
       if (i.checked === false) {
         newItems.push(i);
       }
     }
-    for (let i = 0; i < newItems.length; i += 1) {
-      newItems[i].id = i;
-    }
-    return setItems([...newItems]);
-  };
-
-  const newId = () => {
-    let ident;
-    if (items.length != 0) {
-      ident = items[items.length - 1].id + 1;
-    } else {
-      ident = 0;
-    }
-    console.log(ident);
-    return ident;
+    list = [...newItems];
+    return list;
   };
 
   const clearTask = () => {
     const newItems = [];
-    for (let i of items) {
+    for (let i of list) {
       if (i.checked !== null) {
         newItems.push(i);
       }
     }
-    for (let i = 0; i < newItems.length; i += 1) {
-      newItems[i].id = i;
+    list = [...newItems];
+    return list;
+  };
+
+  const addNewTitle = (e) => {
+    e.preventDefault();
+    setTitle(e.target.value);
+  };
+
+  const addNewTask = (e) => {
+    e.preventDefault();
+    if (title) {
+      dispatch({
+        type: 'ADD_TASK',
+        payload: title,
+      });
     }
-    return setItems([...newItems]);
-  };
-
-  const editTitle = (event) => {
-    setTitle(event.target.value);
-    setTask({ id: newId(), title: event.target.value, checked: false });
-    event.preventDefault();
-    console.log(title);
-  };
-
-  const enterTitle = (event) => {
-    addItem(event);
     setTitle('');
-    setTask({});
   };
 
   return (
@@ -90,18 +61,25 @@ const NewTodoList = () => {
             <Input
               placeholder="Enter the task"
               value={title}
-              onChange={(event) => editTitle(event)}
+              onChange={(event) => {
+                addNewTitle(event);
+              }}
             ></Input>
           </Grid.Col>
           <Grid.Col span={2}>
-            <Input component="button" onClick={(event) => enterTitle(event)}></Input>
+            <Input
+              component="button"
+              onClick={(event) => {
+                addNewTask(event);
+              }}
+            ></Input>
           </Grid.Col>
         </form>
       </Grid>
       <Grid>
         <Grid.Col>
           <List center listStyleType="none" className="todo-list">
-            {items
+            {list
               .filter((item) => {
                 if (filter === 'checked') {
                   return item.checked;
@@ -124,8 +102,13 @@ const NewTodoList = () => {
                     styles={checkStyles(item.checked)}
                     color="teal"
                     checked={item.checked}
-                    label={item.id + '. ' + item.title}
-                    onChange={() => handleComplete(item.id)}
+                    label={item.title}
+                    onChange={() =>
+                      dispatch({
+                        type: 'TOGGLE_TASK',
+                        payload: item.id,
+                      })
+                    }
                   />
                   <Group>
                     <Link to={'/mentorSanya/newpage/all/' + item.id}>
