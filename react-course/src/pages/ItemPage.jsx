@@ -26,11 +26,11 @@ const ItemPage = () => {
   return (
     <div className="item-page">
       <div className="item-data">
-        <h1>{element.id}</h1>
-        <h3>{element.content}</h3>
+        <h1>ID: {element.id}</h1>
+        <h3>Content: {element.content}</h3>
         <Checkbox
           color="teal"
-          label={JSON.stringify(element.completed)}
+          label={'Is completed: ' + JSON.stringify(element.completed)}
           checked={element.completed}
           onChange={() =>
             dispatch({
