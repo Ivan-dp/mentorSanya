@@ -17,19 +17,19 @@ function Main() {
           ...state,
           {
             id: randomId(),
-            title: action.payload,
-            checked: false,
+            content: action.payload,
+            completed: false,
           },
         ];
       case 'TOGGLE_TASK':
         return state.map((task) => {
-          if (task.id === action.payload) return { ...task, checked: !task.checked };
+          if (task.id === action.payload) return { ...task, completed: !task.completed };
           return task;
         });
       case 'DELETE_TASK':
         return state.filter((task) => action.payload !== task.id);
       case 'FILTER_TASK':
-        return state.filter((task) => task.checked === false);
+        return state.filter((task) => task.completed === false);
       default:
         return state;
     }

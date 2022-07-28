@@ -2,8 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Home, Info, ToggleSquare, Posts, RequestInput, ToDo, NewPage } from '../pages';
 import { PostList } from './';
+import { useSelector } from 'react-redux';
 
 const Header = () => {
+  let list = useSelector((store) => store);
+
   return (
     <header>
       <nav>
@@ -35,7 +38,7 @@ const Header = () => {
         <Link to="/mentorSanya/newpage" component={<NewPage />}>
           NewPage
         </Link>
-        <Link to={'/mentorSanya/newpage/all/0'}>index 0</Link>
+        <Link to={'/mentorSanya/newpage/all/' + list[0].id}>index 0</Link>
       </nav>
     </header>
   );

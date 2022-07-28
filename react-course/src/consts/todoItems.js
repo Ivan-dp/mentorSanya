@@ -3,13 +3,13 @@ import { randomId } from '@mantine/hooks';
 const todoItems = [
   {
     id: randomId(),
-    title: 'Съесть деда',
-    checked: true,
+    content: 'Съесть деда',
+    completed: true,
   },
   {
     id: randomId(),
-    title: 'Съесть окрошку',
-    checked: false,
+    content: 'Съесть окрошку',
+    completed: false,
   },
 ];
 
