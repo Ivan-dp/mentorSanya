@@ -1,13 +1,14 @@
 // eslint-disable-next-line no-unused-vars
 import { React, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { Input, Button } from '@mantine/core';
-import { useSelector } from 'react-redux';
+import { Input, Button, Checkbox } from '@mantine/core';
+import { useSelector, useDispatch } from 'react-redux';
 
 const ItemPage = () => {
   let list = useSelector((store) => store);
 
   const { listid } = useParams();
+  const dispatch = useDispatch();
 
   // console.log(listid);
   let element;
@@ -27,7 +28,17 @@ const ItemPage = () => {
       <div className="item-data">
         <h1>{element.id}</h1>
         <h3>{element.title}</h3>
-        <h3 className="item-bool">{JSON.stringify(element.checked)}</h3>
+        <Checkbox
+          color="teal"
+          label={JSON.stringify(element.checked)}
+          checked={element.checked}
+          onChange={() =>
+            dispatch({
+              type: 'TOGGLE_TASK',
+              payload: element.id,
+            })
+          }
+        />
       </div>
       <form className="todo-form" style={{ width: 250 }}>
         <Input
