@@ -31,7 +31,7 @@ const MyRoutes = () => {
       <Route path="/mentorSanya/requestinput" element={<RequestInput />} />
       <Route path="/mentorSanya/todo" element={<ToDo />} />
       <Route path="/mentorSanya/newpage/*" element={<NewPage />} />
-      <Route path="/mentorSanya/newpage/all/:id" element={<ItemPage />} />
+      <Route path="/mentorSanya/newpage/all/:listid" element={<ItemPage />} />
     </Routes>
   );
 };

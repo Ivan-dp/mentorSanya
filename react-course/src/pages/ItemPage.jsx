@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-unused-vars
-import { React, useContext } from 'react';
+import { React, useState, useContext } from 'react';
 import { Link, useParams } from 'react-router-dom';
 // import { itemsContext } from '../itemsContext';
 import { Input, Button } from '@mantine/core';
@@ -9,17 +9,20 @@ import { useSelector, useDispatch } from 'react-redux';
 const ItemPage = () => {
   let list = useSelector((store) => store);
 
-  const { id } = useParams();
+  const { listid } = useParams();
 
-  console.log(id);
+  console.log(listid);
   let element;
-  for (element of list) {
-    if (element.id === id) {
-      console.log(element);
+
+  for (let i = 0; i < list.length; i++) {
+    if (list[i].id === listid) {
+      console.log(list[i]);
+      element = list[i];
     }
-    return element;
   }
+
   console.log(element);
+  const [title, setTitle] = useState(element.title);
 
   return (
     <div className="item-page">
@@ -32,16 +35,16 @@ const ItemPage = () => {
         <Input
           style={{ width: 200 }}
           placeholder={element.title}
-          value={element.title}
+          value={title}
           onChange={(event) => {
-            element.title = event.target.value;
+            setTitle((element.title = event.target.value));
           }}
         ></Input>
         <Input
           style={{ width: 50 }}
           component="button"
           onClick={(event) => {
-            element.title = event.target.value;
+            setTitle(event.target.value);
             event.preventDefault();
           }}
         ></Input>
