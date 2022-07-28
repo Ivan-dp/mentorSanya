@@ -1,27 +1,25 @@
 // eslint-disable-next-line no-unused-vars
-import { React, useState, useContext } from 'react';
+import { React, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-// import { itemsContext } from '../itemsContext';
 import { Input, Button } from '@mantine/core';
-// eslint-disable-next-line no-unused-vars
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 const ItemPage = () => {
   let list = useSelector((store) => store);
 
   const { listid } = useParams();
 
-  console.log(listid);
+  // console.log(listid);
   let element;
 
   for (let i = 0; i < list.length; i++) {
     if (list[i].id === listid) {
-      console.log(list[i]);
+      // console.log(list[i]);
       element = list[i];
     }
   }
 
-  console.log(element);
+  // console.log(element);
   const [title, setTitle] = useState(element.title);
 
   return (
