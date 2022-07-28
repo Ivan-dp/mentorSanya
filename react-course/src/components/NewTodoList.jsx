@@ -10,6 +10,7 @@ const NewTodoList = () => {
   const [filter, setFilter] = useState('all');
 
   let list = useSelector((store) => store);
+
   const dispatch = useDispatch();
 
   console.log('list:');
