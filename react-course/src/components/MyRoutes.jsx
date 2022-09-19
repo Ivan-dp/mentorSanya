@@ -10,6 +10,7 @@ import {
   ToDo,
   NewPage,
   ItemPage,
+  RestApiTest,
 } from '../pages';
 import { PostList } from './';
 
@@ -32,6 +33,7 @@ const MyRoutes = () => {
       <Route path="/mentorSanya/todo" element={<ToDo />} />
       <Route path="/mentorSanya/newpage/*" element={<NewPage />} />
       <Route path="/mentorSanya/newpage/all/:listid" element={<ItemPage />} />
+      <Route path="/mentorSanya/restapitest" element={<RestApiTest />} />
     </Routes>
   );
 };
