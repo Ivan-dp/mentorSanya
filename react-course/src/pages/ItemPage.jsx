@@ -21,17 +21,17 @@ const ItemPage = () => {
   }
 
   // console.log(element);
-  const [title, setTitle] = useState(element.title);
+  const [title, setTitle] = useState(element.content);
 
   return (
     <div className="item-page">
       <div className="item-data">
-        <h1>{element.id}</h1>
-        <h3>{element.title}</h3>
+        <h1>ID: {element.id}</h1>
+        <h3>Content: {element.content}</h3>
         <Checkbox
           color="teal"
-          label={JSON.stringify(element.checked)}
-          checked={element.checked}
+          label={'Is completed: ' + JSON.stringify(element.completed)}
+          checked={element.completed}
           onChange={() =>
             dispatch({
               type: 'TOGGLE_TASK',
@@ -43,10 +43,10 @@ const ItemPage = () => {
       <form className="todo-form" style={{ width: 250 }}>
         <Input
           style={{ width: 200 }}
-          placeholder={element.title}
+          placeholder={element.content}
           value={title}
           onChange={(event) => {
-            setTitle((element.title = event.target.value));
+            setTitle((element.content = event.target.value));
           }}
         ></Input>
         <Input

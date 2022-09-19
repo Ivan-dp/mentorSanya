@@ -60,10 +60,10 @@ const NewTodoList = () => {
           <List center listStyleType="none" className="todo-list">
             {list
               .filter((item) => {
-                if (filter === 'checked') {
-                  return item.checked;
-                } else if (filter === 'unchecked') {
-                  return !item.checked;
+                if (filter === 'completed') {
+                  return item.completed;
+                } else if (filter === 'uncompleted') {
+                  return !item.completed;
                 } else {
                   return item;
                 }
@@ -78,10 +78,10 @@ const NewTodoList = () => {
                     classNames={{
                       label: 'todo-item__label',
                     }}
-                    styles={checkStyles(item.checked)}
+                    styles={checkStyles(item.completed)}
                     color="teal"
-                    checked={item.checked}
-                    label={item.title}
+                    checked={item.completed}
+                    label={item.content}
                     onChange={() =>
                       dispatch({
                         type: 'TOGGLE_TASK',
@@ -131,7 +131,7 @@ const NewTodoList = () => {
                 color="teal"
                 size="xs"
                 variant="outline"
-                onClick={() => setFilter('checked')}
+                onClick={() => setFilter('completed')}
                 leftIcon={<ListCheck size={16} strokeWidth={1.5} color={'teal'} />}
               >
                 Выполненые
@@ -142,7 +142,7 @@ const NewTodoList = () => {
                 color="teal"
                 size="xs"
                 variant="outline"
-                onClick={() => setFilter('unchecked')}
+                onClick={() => setFilter('uncompleted')}
                 leftIcon={<ListDetails size={16} strokeWidth={1.5} color={'teal'} />}
               >
                 Не выполненые
