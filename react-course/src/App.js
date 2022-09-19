@@ -1,6 +1,6 @@
+// import './styles/App.css';
 import React from 'react';
 import { MyRoutes, Header } from './components';
-import './styles';
 
 function App() {
   return (
