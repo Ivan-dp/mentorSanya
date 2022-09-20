@@ -39,6 +39,7 @@ const Header = () => {
           NewPage
         </Link>
         <Link to={'/mentorSanya/newpage/all/' + list[0].id}>index 0</Link>
+        <Link to="/mentorSanya/restapitest">Rest Api Test</Link>
       </nav>
     </header>
   );

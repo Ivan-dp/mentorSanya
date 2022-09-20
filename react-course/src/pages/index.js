@@ -8,6 +8,7 @@ import { ToDo } from './ToDo.jsx';
 import { NewPage } from './NewPage.jsx';
 import { Issue59 } from './Issue59.jsx';
 import { ItemPage } from './ItemPage.jsx';
+import { RestApiTest } from './RestApiTest.jsx';
 
 export { Home };
 export { Info };
@@ -19,3 +20,4 @@ export { ToDo };
 export { NewPage };
 export { Issue59 };
 export { ItemPage };
+export { RestApiTest };
